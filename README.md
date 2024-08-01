@@ -9,8 +9,6 @@ Dados recentes do Zabbix:
 
 ![image](https://github.com/user-attachments/assets/ee3bce29-42f7-4225-827f-2702d66a98c7)
 
-[GIT original](https://github.com/everaldoscabral/Monitoramento_Sefaz)
-
 # Requisitos
 ```
 python 3
@@ -55,3 +53,5 @@ chmod a+x /usr/lib/zabbix/externalscripts/sefaznfe.py
 - 1: INDISPONIVEL
 - 2: INTERMITENTE
 - 5: SEM DADOS
+
+[GIT original](https://github.com/everaldoscabral/Monitoramento_Sefaz)
