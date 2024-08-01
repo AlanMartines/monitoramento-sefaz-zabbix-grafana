@@ -43,15 +43,15 @@ chmod a+x /usr/lib/zabbix/externalscripts/sefaznfe.py
 
 # sefaznfe.py
 ### O resultado sem erro para AUTORIZACAO, RETORNO.AUT INUTILIZACAO CONSULTA.PROTOCOLO SERVICO CONSULTA.CADASTRO RECEPCAO.EVENTO
-- 0: DISPONIVEL
-- 1: INDISPONIVEL
-- 2: OFFLINE
+- 1: DISPONIVEL
+- 2: INDISPONIVEL
+- 0: OFFLINE
 - 5: SEM DADOS
 
 ### O resultado sem erro para TEMPO.MED
-- 0: DISPONIVEL
-- 1: INDISPONIVEL
+- 1: DISPONIVEL
 - 2: INTERMITENTE
+- 0: CRITICO
 - 5: SEM DADOS
 
 [GIT original](https://github.com/everaldoscabral/Monitoramento_Sefaz)
