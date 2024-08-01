@@ -1,5 +1,5 @@
 # Monitoramento Sefaz Zabbix/Grafana
-Monitoramento do status dos serviços da Sefaz via Zabbix e Grafana.
+Monitoramento da [Consultar Disponibilidade](https://hom.nfe.fazenda.gov.br/portal/disponibilidade.aspx) dos serviços da Sefaz via Zabbix e Grafana.
 
 ![image](https://github.com/user-attachments/assets/85db4740-54b4-46a0-8680-875c1f585515)
 
