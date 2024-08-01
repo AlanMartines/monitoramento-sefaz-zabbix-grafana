@@ -1,10 +1,12 @@
 # Zabbix Monitoramento Sefaz
 Monitoramento do status dos serviços da Sefaz via Zabbix.
 
-![image](https://user-images.githubusercontent.com/53796085/153328624-052ba3e1-189a-480d-8dd4-15d67aacd9fa.png)
+![image](https://github.com/user-attachments/assets/85db4740-54b4-46a0-8680-875c1f585515)
 
 Dados recentes do Zabbix:
 
-![image](https://user-images.githubusercontent.com/53796085/153328704-4b51e912-d4f9-4685-8056-221f281f9b71.png)
+![image](https://github.com/user-attachments/assets/aaaf7e64-374b-4aef-8926-58349d91e7ea)
 
-GIT original: https://github.com/everaldoscabral/Monitoramento_Sefaz
+![image](https://github.com/user-attachments/assets/ee3bce29-42f7-4225-827f-2702d66a98c7)
+
+[GIT original](https://github.com/everaldoscabral/Monitoramento_Sefaz)
