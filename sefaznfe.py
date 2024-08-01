@@ -18,14 +18,6 @@
 #      estado de AM. Retornando o valor 1, 2 ou 0.
 # ------------------------------------------------------------------------ #
 #
-# Zabbix Server:
-# /etc/zabbix/zabbix_server.conf
-# TLSCertFile=/caminho/para/sefaz_cert.pem
-# TLSKeyFile=/caminho/para/sefaz_cert.key
-# sudo systemctl restart zabbix-server
-#
-# ------------------------------------------------------------------------ #
-#
 import sys
 import random
 from bs4 import BeautifulSoup
