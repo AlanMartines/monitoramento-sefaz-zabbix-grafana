@@ -56,4 +56,11 @@ chmod a+x /usr/lib/zabbix/externalscripts/sefaznfe.py
 - 0: 🔴CRITICO
 - 5: ⚪SEM DADOS
 
+# Como Usar
+Para usar os templates deste repositório, siga estas etapas:
+
+1. Importe os templates do Zabbix.
+2. Importe o dashboard do Grafana.
+3. Monitore o sistema SEFAZ e visualize os dados no Grafana.
+
 [GIT original](https://github.com/everaldoscabral/Monitoramento_Sefaz)
