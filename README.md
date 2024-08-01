@@ -13,7 +13,7 @@ Dados recentes do Zabbix:
 
 # Requisitos
 ```
-Python 3
+python 3
 beautifulsoup4
 cloudscraper
 requests
