@@ -63,4 +63,8 @@ Para usar os templates deste repositório, siga estas etapas:
 2. Importe o dashboard do Grafana.
 3. Monitore o sistema SEFAZ e visualize os dados no Grafana.
 
+# Testado com
+- Zabbix: v7.0
+- Grafana: v11
+
 [GIT original](https://github.com/everaldoscabral/Monitoramento_Sefaz)
