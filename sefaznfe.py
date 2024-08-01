@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 #
-# https://grafana.com/grafana/dashboards/10005-zabbix-monitoramento-sefaz/
-#
 # ------------------------------------------------------------------------ #
 #  - Este programa irá consultar o status do serviço de NFE da receita federal
 #  Responsável por realizar a consulta dentro do arquivo statusNFE.txt,
