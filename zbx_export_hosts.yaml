@@ -1,0 +1,216 @@
+zabbix_export:
+  version: '7.0'
+  host_groups:
+    - uuid: 47a9e1806d8e421796a4d68e5d19d40a
+      name: 'Monitoramento Sefaz'
+  hosts:
+    - host: SEFAZ_AM
+      name: 'NF-e AM'
+      templates:
+        - name: Template_Sefaz_NFe_SdRedes
+      groups:
+        - name: 'Monitoramento Sefaz'
+      interfaces:
+        - interface_ref: if1
+      macros:
+        - macro: '{$AUT}'
+          value: AM
+        - macro: '{$LINK}'
+          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+      inventory_mode: DISABLED
+    - host: SEFAZ_BA
+      name: 'NF-e BA'
+      templates:
+        - name: Template_Sefaz_NFe_SdRedes
+      groups:
+        - name: 'Monitoramento Sefaz'
+      interfaces:
+        - interface_ref: if1
+      macros:
+        - macro: '{$AUT}'
+          value: BA
+        - macro: '{$LINK}'
+          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+      inventory_mode: DISABLED
+    - host: SEFAZ_CE
+      name: 'NF-e CE'
+      templates:
+        - name: Template_Sefaz_NFe_SdRedes
+      groups:
+        - name: 'Monitoramento Sefaz'
+      interfaces:
+        - interface_ref: if1
+      macros:
+        - macro: '{$AUT}'
+          value: CE
+        - macro: '{$LINK}'
+          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+      inventory_mode: DISABLED
+    - host: SEFAZ_GO
+      name: 'NF-e GO'
+      templates:
+        - name: Template_Sefaz_NFe_SdRedes
+      groups:
+        - name: 'Monitoramento Sefaz'
+      interfaces:
+        - interface_ref: if1
+      macros:
+        - macro: '{$AUT}'
+          value: GO
+        - macro: '{$LINK}'
+          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+      inventory_mode: DISABLED
+    - host: SEFAZ_MG
+      name: 'NF-e MG'
+      templates:
+        - name: Template_Sefaz_NFe_SdRedes
+      groups:
+        - name: 'Monitoramento Sefaz'
+      interfaces:
+        - interface_ref: if1
+      macros:
+        - macro: '{$AUT}'
+          value: MG
+        - macro: '{$LINK}'
+          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+      inventory_mode: DISABLED
+    - host: SEFAZ_MS
+      name: 'NF-e MS'
+      templates:
+        - name: Template_Sefaz_NFe_SdRedes
+      groups:
+        - name: 'Monitoramento Sefaz'
+      interfaces:
+        - interface_ref: if1
+      macros:
+        - macro: '{$AUT}'
+          value: MS
+        - macro: '{$LINK}'
+          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+      inventory_mode: DISABLED
+    - host: SEFAZ_MT
+      name: 'NF-e MT'
+      templates:
+        - name: Template_Sefaz_NFe_SdRedes
+      groups:
+        - name: 'Monitoramento Sefaz'
+      interfaces:
+        - interface_ref: if1
+      macros:
+        - macro: '{$AUT}'
+          value: MT
+        - macro: '{$LINK}'
+          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+      inventory_mode: DISABLED
+    - host: SEFAZ_PE
+      name: 'NF-e PE'
+      templates:
+        - name: Template_Sefaz_NFe_SdRedes
+      groups:
+        - name: 'Monitoramento Sefaz'
+      interfaces:
+        - interface_ref: if1
+      macros:
+        - macro: '{$AUT}'
+          value: PE
+        - macro: '{$LINK}'
+          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+      inventory_mode: DISABLED
+    - host: SEFAZ_PR
+      name: 'NF-e PR'
+      templates:
+        - name: Template_Sefaz_NFe_SdRedes
+      groups:
+        - name: 'Monitoramento Sefaz'
+      interfaces:
+        - interface_ref: if1
+      macros:
+        - macro: '{$AUT}'
+          value: PR
+        - macro: '{$LINK}'
+          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+      inventory_mode: DISABLED
+    - host: SEFAZ_RS
+      name: 'NF-e RS'
+      templates:
+        - name: Template_Sefaz_NFe_SdRedes
+      groups:
+        - name: 'Monitoramento Sefaz'
+      interfaces:
+        - interface_ref: if1
+      macros:
+        - macro: '{$AUT}'
+          value: RS
+        - macro: '{$LINK}'
+          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+      inventory_mode: DISABLED
+    - host: SEFAZ_SP
+      name: 'NF-e SP'
+      templates:
+        - name: Template_Sefaz_NFe_SdRedes
+      groups:
+        - name: 'Monitoramento Sefaz'
+      interfaces:
+        - interface_ref: if1
+      macros:
+        - macro: '{$AUT}'
+          value: SP
+        - macro: '{$LINK}'
+          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+      inventory_mode: DISABLED
+    - host: SEFAZ_SVAN
+      name: 'NF-e SVAN'
+      templates:
+        - name: Template_Sefaz_NFe_SdRedes
+      groups:
+        - name: 'Monitoramento Sefaz'
+      interfaces:
+        - interface_ref: if1
+      macros:
+        - macro: '{$AUT}'
+          value: SVAN
+        - macro: '{$LINK}'
+          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+      inventory_mode: DISABLED
+    - host: SEFAZ_SVC-AN
+      name: 'NF-e SVC-AN'
+      templates:
+        - name: Template_Sefaz_NFe_SdRedes
+      groups:
+        - name: 'Monitoramento Sefaz'
+      interfaces:
+        - interface_ref: if1
+      macros:
+        - macro: '{$AUT}'
+          value: SVC-AN
+        - macro: '{$LINK}'
+          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+      inventory_mode: DISABLED
+    - host: SEFAZ_SVC-RS
+      name: 'NF-e SVC-RS'
+      templates:
+        - name: Template_Sefaz_NFe_SdRedes
+      groups:
+        - name: 'Monitoramento Sefaz'
+      interfaces:
+        - interface_ref: if1
+      macros:
+        - macro: '{$AUT}'
+          value: SVC-RS
+        - macro: '{$LINK}'
+          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+      inventory_mode: DISABLED
+    - host: SEFAZ_SVRS
+      name: 'NF-e SVRS'
+      templates:
+        - name: Template_Sefaz_NFe_SdRedes
+      groups:
+        - name: 'Monitoramento Sefaz'
+      interfaces:
+        - interface_ref: if1
+      macros:
+        - macro: '{$AUT}'
+          value: SVRS
+        - macro: '{$LINK}'
+          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+      inventory_mode: DISABLED

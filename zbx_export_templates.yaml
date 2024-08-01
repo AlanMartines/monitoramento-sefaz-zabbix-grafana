@@ -1,0 +1,239 @@
+zabbix_export:
+  version: '7.0'
+  template_groups:
+    - uuid: 7fb31f39713b4a7591897d1416ab29b0
+      name: Templates/Sefaz
+  templates:
+    - uuid: bb59cf6587584143ae6596546b780cc3
+      template: Template_Sefaz_NFe_SdRedes
+      name: 'Template Sefaz NF-e'
+      groups:
+        - name: Templates/Sefaz
+      items:
+        - uuid: 73c961ee23da47fdae5cddb48ea4f6c4
+          name: Autorizacao
+          type: EXTERNAL
+          key: 'sefaznfe.py[{$LINK}, {$AUT}, AUTORIZACAO]'
+          delay: 120s
+          history: 7d
+          trends: 30d
+          valuemap:
+            name: SEFAZ
+          timeout: 5s
+          tags:
+            - tag: Application
+              value: 'Consulta Sefaz NF-e'
+          triggers:
+            - uuid: 2db7f3b5b09e4ca08d64855e5f2d4dc8
+              expression: 'last(/Template_Sefaz_NFe_SdRedes/sefaznfe.py[{$LINK}, {$AUT}, AUTORIZACAO],#1)=0'
+              name: 'Serviço Autenticação na {HOST.NAME} está indisponível.'
+              priority: HIGH
+            - uuid: 7f5997c28c574d968a417982c302be73
+              expression: 'last(/Template_Sefaz_NFe_SdRedes/sefaznfe.py[{$LINK}, {$AUT}, AUTORIZACAO],#1)=2'
+              name: 'Serviço Autenticação na {HOST.NAME} está lento.'
+              priority: AVERAGE
+        - uuid: d556956810f94997880a138f7f4e929f
+          name: 'Consulta Cadastro'
+          type: EXTERNAL
+          key: 'sefaznfe.py[{$LINK}, {$AUT}, CONSULTA.CADASTRO]'
+          delay: 120s
+          history: 7d
+          trends: 30d
+          valuemap:
+            name: SEFAZ
+          timeout: 5s
+          tags:
+            - tag: Application
+              value: 'Consulta Sefaz NF-e'
+          triggers:
+            - uuid: a74c24b4927b460aa3f6400b1cd4e64e
+              expression: 'last(/Template_Sefaz_NFe_SdRedes/sefaznfe.py[{$LINK}, {$AUT}, CONSULTA.CADASTRO],#1)=0'
+              name: 'Serviço Consultar Cadastro na {HOST.NAME} está indisponível.'
+              priority: HIGH
+            - uuid: 7485e5c5680346929fb1d0341255d7e4
+              expression: 'last(/Template_Sefaz_NFe_SdRedes/sefaznfe.py[{$LINK}, {$AUT}, CONSULTA.CADASTRO],#1)=2'
+              name: 'Serviço Consultar Cadastro na {HOST.NAME} está lento.'
+              priority: AVERAGE
+        - uuid: 8387e079988e4249a7701e73e55b926f
+          name: 'Consulta Protocolo'
+          type: EXTERNAL
+          key: 'sefaznfe.py[{$LINK}, {$AUT}, CONSULTA.PROTOCOLO]'
+          delay: 120s
+          history: 7d
+          trends: 30d
+          valuemap:
+            name: SEFAZ
+          timeout: 5s
+          tags:
+            - tag: Application
+              value: 'Consulta Sefaz NF-e'
+          triggers:
+            - uuid: 3401662abb0941a18eeffafafa8b2e1d
+              expression: 'last(/Template_Sefaz_NFe_SdRedes/sefaznfe.py[{$LINK}, {$AUT}, CONSULTA.PROTOCOLO],#1)=0'
+              name: 'Serviço Consulta Protocolo na {HOST.NAME} está indisponível.'
+              priority: HIGH
+            - uuid: ea30e9e8fe6847ff91fe8f739443e5a9
+              expression: 'last(/Template_Sefaz_NFe_SdRedes/sefaznfe.py[{$LINK}, {$AUT}, CONSULTA.PROTOCOLO],#1)=2'
+              name: 'Serviço Consulta Protocolo na {HOST.NAME} está lento.'
+              priority: AVERAGE
+        - uuid: 47391dc3f60c4f53845ffa1f8c832997
+          name: Inutilização
+          type: EXTERNAL
+          key: 'sefaznfe.py[{$LINK}, {$AUT}, INUTILIZACAO]'
+          delay: 120s
+          history: 7d
+          trends: 30d
+          valuemap:
+            name: SEFAZ
+          timeout: 5s
+          tags:
+            - tag: Application
+              value: 'Consulta Sefaz NF-e'
+          triggers:
+            - uuid: 4da1842acae341d195f97714177a4ac6
+              expression: 'last(/Template_Sefaz_NFe_SdRedes/sefaznfe.py[{$LINK}, {$AUT}, INUTILIZACAO],#1)=0'
+              name: 'Serviço Inutilização na {HOST.NAME} está indisponível.'
+              priority: HIGH
+            - uuid: 7462fcb09fb948e2a213463a389018e7
+              expression: 'last(/Template_Sefaz_NFe_SdRedes/sefaznfe.py[{$LINK}, {$AUT}, INUTILIZACAO],#1)=2'
+              name: 'Serviço Inutilização na {HOST.NAME} está lento.'
+              priority: AVERAGE
+        - uuid: 7bfe3da7e53947cdb5cc432b5c0473b8
+          name: 'Recepcão Evento'
+          type: EXTERNAL
+          key: 'sefaznfe.py[{$LINK}, {$AUT}, RECEPCAO.EVENTO]'
+          delay: 120s
+          history: 7d
+          trends: 30d
+          valuemap:
+            name: SEFAZ
+          timeout: 5s
+          tags:
+            - tag: Application
+              value: 'Consulta Sefaz NF-e'
+          triggers:
+            - uuid: 09597269dc25448caf08a89160c0fe01
+              expression: 'last(/Template_Sefaz_NFe_SdRedes/sefaznfe.py[{$LINK}, {$AUT}, RECEPCAO.EVENTO],#1)=0'
+              name: 'Serviço Recepção Evento na {HOST.NAME} está indisponível.'
+              priority: HIGH
+            - uuid: b1c5a0e4e6e24c8492a0fa9d5b00c0a9
+              expression: 'last(/Template_Sefaz_NFe_SdRedes/sefaznfe.py[{$LINK}, {$AUT}, RECEPCAO.EVENTO],#1)=2'
+              name: 'Serviço Recepção Evento na {HOST.NAME} está lento.'
+              priority: AVERAGE
+        - uuid: be92162a0537420e8677f702e87557b2
+          name: 'Retorno Autorizacao'
+          type: EXTERNAL
+          key: 'sefaznfe.py[{$LINK}, {$AUT}, RETORNO.AUT]'
+          delay: 120s
+          history: 7d
+          trends: 30d
+          valuemap:
+            name: SEFAZ
+          timeout: 5s
+          tags:
+            - tag: Application
+              value: 'Consulta Sefaz NF-e'
+          triggers:
+            - uuid: 104bec89bcaf48e590e1ec9635c3dbe8
+              expression: 'last(/Template_Sefaz_NFe_SdRedes/sefaznfe.py[{$LINK}, {$AUT}, RETORNO.AUT],#1)=0'
+              name: 'Serviço Retorno de Autenticação na {HOST.NAME} está indisponível.'
+              priority: HIGH
+            - uuid: e557efd36aeb4796b68f6994ad4304dd
+              expression: 'last(/Template_Sefaz_NFe_SdRedes/sefaznfe.py[{$LINK}, {$AUT}, RETORNO.AUT],#1)=2'
+              name: 'Serviço Retorno de Autenticação na {HOST.NAME} está lento.'
+              priority: AVERAGE
+        - uuid: 13189664a4ff46ea961f19bc60420de8
+          name: 'Status Serviço'
+          type: EXTERNAL
+          key: 'sefaznfe.py[{$LINK}, {$AUT}, SERVICO]'
+          delay: 120s
+          history: 7d
+          trends: 30d
+          valuemap:
+            name: SEFAZ
+          timeout: 5s
+          tags:
+            - tag: Application
+              value: 'Consulta Sefaz NF-e'
+          triggers:
+            - uuid: 545e786af9a34cc78526379570e0f6a0
+              expression: 'last(/Template_Sefaz_NFe_SdRedes/sefaznfe.py[{$LINK}, {$AUT}, SERVICO],#1)=0'
+              name: 'Serviço Status Serviço na {HOST.NAME} está indisponível.'
+              priority: HIGH
+            - uuid: 722b967fece649aaad386cb453847b23
+              expression: 'last(/Template_Sefaz_NFe_SdRedes/sefaznfe.py[{$LINK}, {$AUT}, SERVICO],#1)=2'
+              name: 'Serviço Status Serviço na {HOST.NAME} está lento.'
+              priority: AVERAGE
+        - uuid: 382c1cd72e9240acaf535da249fe01a6
+          name: 'Tempo Médio'
+          type: EXTERNAL
+          key: 'sefaznfe.py[{$LINK}, {$AUT}, TEMPO.MED]'
+          delay: 120s
+          history: 7d
+          trends: 30d
+          units: ms
+          valuemap:
+            name: SEFAZ
+          timeout: 5s
+          tags:
+            - tag: Application
+              value: 'Consulta Sefaz NF-e'
+          triggers:
+            - uuid: 7adbd18862604f2a996391acc3a77ebb
+              expression: 'last(/Template_Sefaz_NFe_SdRedes/sefaznfe.py[{$LINK}, {$AUT}, TEMPO.MED],#1)=0'
+              name: 'Tempo Médio na {HOST.NAME} está crítico.'
+              priority: HIGH
+            - uuid: 0bab7af139d54fca947fdc279994cfd7
+              expression: 'last(/Template_Sefaz_NFe_SdRedes/sefaznfe.py[{$LINK}, {$AUT}, TEMPO.MED],#1)=2'
+              name: 'Tempo Médio na {HOST.NAME} está intermitente.'
+              priority: AVERAGE
+      valuemaps:
+        - uuid: cbc43970cb9a41879be0aac57aa96756
+          name: SEFAZ
+          mappings:
+            - value: '0'
+              newvalue: Offline
+            - value: '1'
+              newvalue: Disponível
+            - value: '2'
+              newvalue: Indisponível
+            - value: '5'
+              newvalue: 'Sem Dados'
+  graphs:
+    - uuid: 3b0b02ecc1e148aeb86bf005953b0273
+      name: 'Sefaz Servicos'
+      graph_items:
+        - color: 1A7C11
+          item:
+            host: Template_Sefaz_NFe_SdRedes
+            key: 'sefaznfe.py[{$LINK}, {$AUT}, AUTORIZACAO]'
+        - sortorder: '1'
+          color: F63100
+          item:
+            host: Template_Sefaz_NFe_SdRedes
+            key: 'sefaznfe.py[{$LINK}, {$AUT}, CONSULTA.CADASTRO]'
+        - sortorder: '2'
+          color: 2774A4
+          item:
+            host: Template_Sefaz_NFe_SdRedes
+            key: 'sefaznfe.py[{$LINK}, {$AUT}, CONSULTA.PROTOCOLO]'
+        - sortorder: '3'
+          color: A54F10
+          item:
+            host: Template_Sefaz_NFe_SdRedes
+            key: 'sefaznfe.py[{$LINK}, {$AUT}, INUTILIZACAO]'
+        - sortorder: '4'
+          color: FC6EA3
+          item:
+            host: Template_Sefaz_NFe_SdRedes
+            key: 'sefaznfe.py[{$LINK}, {$AUT}, RECEPCAO.EVENTO]'
+        - sortorder: '5'
+          color: 6C59DC
+          item:
+            host: Template_Sefaz_NFe_SdRedes
+            key: 'sefaznfe.py[{$LINK}, {$AUT}, RETORNO.AUT]'
+        - sortorder: '6'
+          color: AC8C14
+          item:
+            host: Template_Sefaz_NFe_SdRedes
+            key: 'sefaznfe.py[{$LINK}, {$AUT}, SERVICO]'
