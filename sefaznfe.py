@@ -1,19 +1,17 @@
 #!/usr/bin/env python3
 #
 # ------------------------------------------------------------------------ #
-#  - Este programa irá consultar o status do serviço de NFE da receita federal
-#  Responsável por realizar a consulta dentro do arquivo statusNFE.txt,
-#  nas consultas será pesquisada as linhas do Autorizador e cada linha de serviço
+#  - Este programa irá consultar o status do serviço de NFE da receita federal.
+#  Nas consultas será pesquisada as linhas do Autorizador e cada linha de serviço
 #  deste autorizador, nesse script ele verificará as alterações das “Bolinhas”
 #  em cada serviço, se for verde (Disponível) ele apresentará o resultado 1, 2
 #  para amarelo (Indisponível) e 0 para Vermelho(Offine).
-#
-#  - Script criado com base no script do @bernardolankheet.
 #
 #   Exemplos:
 #      $ ./sefaznfe.py <URL> <ESTADO> <STATUS>
 #      Neste exemplo o script realiza a consulta do campo de "Autorização" do
 #      estado de AM. Retornando o valor 1, 2 ou 0.
+#
 # ------------------------------------------------------------------------ #
 #
 import sys
