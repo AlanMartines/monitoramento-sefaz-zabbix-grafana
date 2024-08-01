@@ -54,4 +54,8 @@ chmod a+x /usr/lib/zabbix/externalscripts/sefaznfe.py
 - 0: DISPONIVEL
 - 1: INDISPONIVEL
 - 2: INTERMITENTE
+<<<<<<< HEAD
 - 5: SEM DADOS
+=======
+- 5: SEM DADOS
+>>>>>>> cf05036de72fd44fab889f25ab67845e958325c7
