@@ -67,4 +67,12 @@ Para usar os templates deste repositório, siga estas etapas:
 - Zabbix: v7.0
 - Grafana: v11
 
+# Contribuições
+
+[Contribuições](CONTRIBUTING.md) são bem-vindas! Por favor, abra uma issue ou pull request.
+
+# Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
 [GIT original](https://github.com/everaldoscabral/Monitoramento_Sefaz)
