@@ -108,7 +108,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -116,8 +116,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -227,7 +231,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -235,8 +239,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -346,7 +354,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -354,8 +362,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -465,7 +477,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -473,8 +485,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -584,7 +600,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -592,8 +608,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -703,7 +723,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -711,8 +731,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -822,7 +846,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -830,8 +854,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -941,7 +969,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -949,8 +977,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -1060,7 +1092,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -1068,8 +1100,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -2262,7 +2298,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -2270,8 +2306,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -3465,7 +3505,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -3473,8 +3513,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -4669,7 +4713,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -4677,8 +4721,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -4967,7 +5015,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -4975,8 +5023,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -5019,10 +5071,12 @@
           "application": {
             "filter": "ICMP"
           },
+          "countTriggersBy": "",
           "datasource": {
             "type": "alexanderzobnin-zabbix-datasource",
             "uid": "ddsmbtjyc0utca"
           },
+          "evaltype": "0",
           "functions": [],
           "group": {
             "filter": "Monitoramento Sefaz"
@@ -5037,10 +5091,16 @@
           "itemTag": {
             "filter": "Application: Consulta Sefaz NF-e"
           },
+          "macro": {
+            "filter": ""
+          },
           "options": {
+            "count": true,
             "disableDataAlignment": false,
+            "minSeverity": 3,
             "showDisabledItems": false,
             "skipEmptyValues": false,
+            "useTrends": "default",
             "useZabbixValueMapping": false
           },
           "proxy": {
@@ -5049,19 +5109,19 @@
           "queryType": "0",
           "refId": "A",
           "resultFormat": "time_series",
+          "schema": 12,
           "table": {
             "skipEmptyValues": false
           },
           "tags": {
             "filter": ""
           },
+          "textFilter": "",
           "trigger": {
             "filter": ""
           },
           "triggers": {
-            "acknowledged": 2,
-            "count": true,
-            "minSeverity": 3
+            "acknowledged": 2
           }
         }
       ],
@@ -5110,7 +5170,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -5118,8 +5178,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -5253,7 +5317,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -5261,8 +5325,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -5396,7 +5464,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -5404,8 +5472,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -5694,7 +5766,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -5702,8 +5774,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -5813,7 +5889,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -5821,8 +5897,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -5956,7 +6036,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -5964,8 +6044,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -6099,7 +6183,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -6107,8 +6191,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -6242,7 +6330,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -6250,8 +6338,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -6385,7 +6477,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -6393,8 +6485,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -6528,7 +6624,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -6536,8 +6632,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -6671,7 +6771,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -6679,8 +6779,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -6723,10 +6827,12 @@
           "application": {
             "filter": "ICMP"
           },
+          "countTriggersBy": "",
           "datasource": {
             "type": "alexanderzobnin-zabbix-datasource",
             "uid": "ddsmbtjyc0utca"
           },
+          "evaltype": "0",
           "functions": [],
           "group": {
             "filter": "Monitoramento Sefaz"
@@ -6741,10 +6847,16 @@
           "itemTag": {
             "filter": "Application: Consulta Sefaz NF-e"
           },
+          "macro": {
+            "filter": ""
+          },
           "options": {
+            "count": true,
             "disableDataAlignment": false,
+            "minSeverity": 3,
             "showDisabledItems": false,
             "skipEmptyValues": false,
+            "useTrends": "default",
             "useZabbixValueMapping": false
           },
           "proxy": {
@@ -6753,19 +6865,19 @@
           "queryType": "0",
           "refId": "A",
           "resultFormat": "time_series",
+          "schema": 12,
           "table": {
             "skipEmptyValues": false
           },
           "tags": {
             "filter": ""
           },
+          "textFilter": "",
           "trigger": {
             "filter": ""
           },
           "triggers": {
-            "acknowledged": 2,
-            "count": true,
-            "minSeverity": 3
+            "acknowledged": 2
           }
         }
       ],
@@ -6814,7 +6926,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -6822,8 +6934,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -6933,7 +7049,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -6941,8 +7057,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -7076,7 +7196,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -7084,8 +7204,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -7219,7 +7343,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -7227,8 +7351,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -7362,7 +7490,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -7370,8 +7498,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -7505,7 +7637,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -7513,8 +7645,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -7648,7 +7784,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -7656,8 +7792,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -7791,7 +7931,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -7799,8 +7939,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -7934,7 +8078,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -7942,8 +8086,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -8053,7 +8201,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -8061,8 +8209,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -8196,7 +8348,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -8204,8 +8356,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -8339,7 +8495,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -8347,8 +8503,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -8482,7 +8642,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -8490,8 +8650,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -8625,7 +8789,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -8633,8 +8797,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -8768,7 +8936,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -8776,8 +8944,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -8911,7 +9083,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -8919,8 +9091,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -9054,7 +9230,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -9062,8 +9238,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -9173,7 +9353,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -9181,8 +9361,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -9316,7 +9500,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -9324,8 +9508,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -9459,7 +9647,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -9467,8 +9655,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -9602,7 +9794,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -9610,8 +9802,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -9745,7 +9941,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -9753,8 +9949,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -9888,7 +10088,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -9896,8 +10096,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -10031,7 +10235,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -10039,8 +10243,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -10174,7 +10382,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -10182,8 +10390,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -10293,7 +10505,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -10301,8 +10513,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -10436,7 +10652,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -10444,8 +10660,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -10579,7 +10799,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -10587,8 +10807,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -10722,7 +10946,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -10730,8 +10954,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -10865,7 +11093,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -10873,8 +11101,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -11008,7 +11240,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -11016,8 +11248,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -11151,7 +11387,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -11159,8 +11395,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -11294,7 +11534,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -11302,8 +11542,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -11413,7 +11657,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -11421,8 +11665,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -11556,7 +11804,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -11564,8 +11812,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -11699,7 +11951,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -11707,8 +11959,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -11842,7 +12098,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -11850,8 +12106,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -11985,7 +12245,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -11993,8 +12253,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -12128,7 +12392,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -12136,8 +12400,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -12271,7 +12539,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -12279,8 +12547,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -12414,7 +12686,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -12422,8 +12694,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -12533,7 +12809,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -12541,8 +12817,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -12676,7 +12956,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -12684,8 +12964,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -12819,7 +13103,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -12827,8 +13111,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -12962,7 +13250,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -12970,8 +13258,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -13105,7 +13397,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -13113,8 +13405,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -13248,7 +13544,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -13256,8 +13552,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -13391,7 +13691,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -13399,8 +13699,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -13534,7 +13838,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -13542,8 +13846,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -13653,7 +13961,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -13661,8 +13969,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -13796,7 +14108,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -13804,8 +14116,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -13939,7 +14255,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -13947,8 +14263,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -14082,7 +14402,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -14090,8 +14410,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -14225,7 +14549,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -14233,8 +14557,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -14368,7 +14696,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -14376,8 +14704,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -14511,7 +14843,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -14519,8 +14851,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -14654,7 +14990,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -14662,8 +14998,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -14773,7 +15113,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -14781,8 +15121,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -14916,7 +15260,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -14924,8 +15268,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -15059,7 +15407,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -15067,8 +15415,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -15202,7 +15554,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -15210,8 +15562,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -15345,7 +15701,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -15353,8 +15709,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -15488,7 +15848,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -15496,8 +15856,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -15631,7 +15995,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -15639,8 +16003,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -15774,7 +16142,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -15782,8 +16150,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -15893,7 +16265,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -15901,8 +16273,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -16036,7 +16412,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -16044,8 +16420,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -16179,7 +16559,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -16187,8 +16567,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -16322,7 +16706,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -16330,8 +16714,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -16465,7 +16853,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -16473,8 +16861,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -16608,7 +17000,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -16616,8 +17008,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -16751,7 +17147,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -16759,8 +17155,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -16894,7 +17294,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-yellow",
+                "color": "transparent",
                 "value": null
               },
               {
@@ -16902,8 +17302,12 @@
                 "value": 0
               },
               {
-                "color": "rgba(50, 172, 45, 0.97)",
+                "color": "dark-green",
                 "value": 1
+              },
+              {
+                "color": "dark-yellow",
+                "value": 2
               }
             ]
           },
@@ -17094,6 +17498,6 @@
   "timezone": "browser",
   "title": "Consultar Disponibilidade NF-e Sefaz",
   "uid": "yRbLwr6nzzz",
-  "version": 3,
+  "version": 8,
   "weekStart": ""
 }
