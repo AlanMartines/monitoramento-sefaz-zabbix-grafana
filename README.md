@@ -16,6 +16,7 @@ Dados recentes do Zabbix:
 python 3
 beautifulsoup4
 cloudscraper
+cfscrape
 requests
 openssl
 ```
@@ -27,10 +28,13 @@ openssl
 ```
 
 # Debian / Ubuntu
-<pre>apt install python3 python3-pip
+```sh
+apt install python3 python3-pip
 pip3 install bs4
 pip3 install requests
-pip3 install cloudscraper</pre>
+pip3 install cloudscraper
+pip3 install cfscrape
+```
 
 Caso já tenha o pip instalado e queira instalar as dependencias rode:
 ```
