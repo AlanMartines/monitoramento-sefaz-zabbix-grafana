@@ -67,6 +67,26 @@ Para usar os templates deste repositório, siga estas etapas:
 - Zabbix: v7.0
 - Grafana: v11
 
+# [Downgrade para Zabbix v5.4:](https://github.com/AlanMartines/monitoramento-sefaz-zabbix-grafana/issues/2#issue-2629057062)
+**No arquivo YAML altere a versão de 7.0 para 5.4 e mude a tag do grupo, depois de criar os grupos manualmente, realize a importação** Obs: Lembre-se de não marcar a opção de CRIAR NOVO GRUPO no zabbix, apenas editar o atual existente.
+ 
+### Atual:
+```yaml
+zabbix_export:
+  version: '7.0'
+  host_groups:
+```
+
+### Alteração:
+```yaml
+zabbix_export:
+  version: '5.4'
+  groups:
+```
+
+### Antes de importar os arquivos YAML, crie os grupos manualmente.
+Grupo de Hosts: Monitoramento Sefaz Grupo de Templates: Templates/Sefaz
+
 # Contribuições
 
 [Contribuições](CONTRIBUTING.md) são bem-vindas! Por favor, abra uma issue ou pull request.
