@@ -17,7 +17,7 @@
 import sys
 import random
 from bs4 import BeautifulSoup
-import cloudscraper
+import requests
 
 user_agent_list = [
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
@@ -34,7 +34,6 @@ user_agent_list = [
 ]
 
 def request(url):
-    scraper = cloudscraper.create_scraper()
     headers = {
         'User-Agent': random.choice(user_agent_list),
         'Accept-Language': 'en-US,en;q=0.9',
@@ -43,7 +42,7 @@ def request(url):
         'DNT': '1',
         'Upgrade-Insecure-Requests': '1'
     }
-    response = scraper.get(url, headers=headers)
+    response = requests.get(url, headers=headers)
     return response
 
 def consultar_servico(status):
@@ -74,7 +73,6 @@ def main(url, estado, status):
     response = request(url)
 
     if response.status_code != 200:
-        # print("Falha ao obter a página. Status code:", response.status_code)
         print(5)
         sys.exit()
 
@@ -120,10 +118,9 @@ def main(url, estado, status):
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
-        # Usage: ./sefaznfe.py <URL> <ESTADO> <STATUS>
         print(5)
         sys.exit()
-    
+
     url = sys.argv[1]
     estado = sys.argv[2]
     status = sys.argv[3]
