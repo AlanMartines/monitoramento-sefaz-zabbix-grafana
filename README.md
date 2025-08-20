@@ -14,10 +14,10 @@ Dados recentes do Zabbix:
 # Requisitos
 ```
 python 3
-requests>=2.31.0
-beautifulsoup4>=4.12.0
-urllib3>=2.0.0
-lxml>=4.9.0
+bs4
+requests
+cloudscraper
+cfscrape
 ```
 
 # Uso
@@ -29,10 +29,10 @@ lxml>=4.9.0
 # Debian / Ubuntu
 ```sh
 apt install python3 python3-pip
-pip3 install beautifulsoup4>=4.12.0
-pip3 install requests>=2.31.0
-pip3 install lxml>=4.9.0
-pip3 install urllib3>=2.0.0
+pip3 install bs4
+pip3 install requests
+pip3 install cloudscraper
+pip3 install cfscrape
 ```
 
 Caso já tenha o pip instalado e queira instalar as dependencias rode:
