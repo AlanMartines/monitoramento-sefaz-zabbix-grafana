@@ -16,7 +16,7 @@ zabbix_export:
         - macro: '{$AUT}'
           value: AM
         - macro: '{$LINK}'
-          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+          value: 'https://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
       inventory_mode: DISABLED
     - host: SEFAZ_BA
       name: 'NF-e BA'
@@ -30,7 +30,7 @@ zabbix_export:
         - macro: '{$AUT}'
           value: BA
         - macro: '{$LINK}'
-          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+          value: 'https://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
       inventory_mode: DISABLED
     - host: SEFAZ_CE
       name: 'NF-e CE'
@@ -44,7 +44,7 @@ zabbix_export:
         - macro: '{$AUT}'
           value: CE
         - macro: '{$LINK}'
-          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+          value: 'https://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
       inventory_mode: DISABLED
     - host: SEFAZ_GO
       name: 'NF-e GO'
@@ -58,7 +58,7 @@ zabbix_export:
         - macro: '{$AUT}'
           value: GO
         - macro: '{$LINK}'
-          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+          value: 'https://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
       inventory_mode: DISABLED
     - host: SEFAZ_MG
       name: 'NF-e MG'
@@ -72,7 +72,7 @@ zabbix_export:
         - macro: '{$AUT}'
           value: MG
         - macro: '{$LINK}'
-          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+          value: 'https://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
       inventory_mode: DISABLED
     - host: SEFAZ_MS
       name: 'NF-e MS'
@@ -86,7 +86,7 @@ zabbix_export:
         - macro: '{$AUT}'
           value: MS
         - macro: '{$LINK}'
-          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+          value: 'https://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
       inventory_mode: DISABLED
     - host: SEFAZ_MT
       name: 'NF-e MT'
@@ -100,7 +100,7 @@ zabbix_export:
         - macro: '{$AUT}'
           value: MT
         - macro: '{$LINK}'
-          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+          value: 'https://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
       inventory_mode: DISABLED
     - host: SEFAZ_PE
       name: 'NF-e PE'
@@ -114,7 +114,7 @@ zabbix_export:
         - macro: '{$AUT}'
           value: PE
         - macro: '{$LINK}'
-          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+          value: 'https://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
       inventory_mode: DISABLED
     - host: SEFAZ_PR
       name: 'NF-e PR'
@@ -128,7 +128,7 @@ zabbix_export:
         - macro: '{$AUT}'
           value: PR
         - macro: '{$LINK}'
-          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+          value: 'https://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
       inventory_mode: DISABLED
     - host: SEFAZ_RS
       name: 'NF-e RS'
@@ -142,7 +142,7 @@ zabbix_export:
         - macro: '{$AUT}'
           value: RS
         - macro: '{$LINK}'
-          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+          value: 'https://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
       inventory_mode: DISABLED
     - host: SEFAZ_SP
       name: 'NF-e SP'
@@ -156,7 +156,7 @@ zabbix_export:
         - macro: '{$AUT}'
           value: SP
         - macro: '{$LINK}'
-          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+          value: 'https://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
       inventory_mode: DISABLED
     - host: SEFAZ_SVAN
       name: 'NF-e SVAN'
@@ -170,7 +170,7 @@ zabbix_export:
         - macro: '{$AUT}'
           value: SVAN
         - macro: '{$LINK}'
-          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+          value: 'https://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
       inventory_mode: DISABLED
     - host: SEFAZ_SVC-AN
       name: 'NF-e SVC-AN'
@@ -184,7 +184,7 @@ zabbix_export:
         - macro: '{$AUT}'
           value: SVC-AN
         - macro: '{$LINK}'
-          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+          value: 'https://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
       inventory_mode: DISABLED
     - host: SEFAZ_SVC-RS
       name: 'NF-e SVC-RS'
@@ -198,7 +198,7 @@ zabbix_export:
         - macro: '{$AUT}'
           value: SVC-RS
         - macro: '{$LINK}'
-          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+          value: 'https://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
       inventory_mode: DISABLED
     - host: SEFAZ_SVRS
       name: 'NF-e SVRS'
@@ -212,5 +212,5 @@ zabbix_export:
         - macro: '{$AUT}'
           value: SVRS
         - macro: '{$LINK}'
-          value: 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
+          value: 'https://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx'
       inventory_mode: DISABLED

@@ -1,5 +1,5 @@
 # Monitoramento Sefaz Zabbix/Grafana
-Monitoramento para [Consultar Disponibilidade](https://hom.nfe.fazenda.gov.br/portal/disponibilidade.aspx) dos serviços da Sefaz via Zabbix e Grafana.
+Monitoramento para [Consultar Disponibilidade](https://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx) dos serviços da Sefaz via Zabbix e Grafana.
 
 ![image](https://github.com/user-attachments/assets/85db4740-54b4-46a0-8680-875c1f585515)
 
@@ -14,30 +14,34 @@ Dados recentes do Zabbix:
 # Requisitos
 ```
 python 3
-bs4
+beautifulsoup4
 requests
-cloudscraper
-cfscrape
 ```
 
 # Uso
 ```
-./sefaznfe.py <URL> <ESTADO> <STATUS>
+./sefaznfe.py <URL> <AUTORIZADOR> <STATUS>
 ./sefaznfe.py https://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx AM SERVICO
 ```
 
+`<AUTORIZADOR>` é o nome que aparece na primeira coluna do portal: AM, BA, GO, MG, MS, MT, PE, PR, RS, SP, SVAN, SVRS, SVC-AN ou SVC-RS.
+
+`<STATUS>`: AUTORIZACAO, RETORNO.AUT, INUTILIZACAO, CONSULTA.PROTOCOLO, SERVICO, TEMPO.MED, CONSULTA.CADASTRO ou RECEPCAO.EVENTO.
+
+Para ver o motivo de um retorno 3 (erro na coleta), rode com o modo de diagnóstico:
+```
+SEFAZ_NFE_DEBUG=1 ./sefaznfe.py https://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx AM SERVICO
+```
+Esse modo é só para uso manual. O Zabbix junta stdout e stderr no valor do item, então não ative essa variável no servidor.
+
 # Debian / Ubuntu
 ```sh
-apt install python3 python3-pip
-pip3 install bs4
-pip3 install requests
-pip3 install cloudscraper
-pip3 install cfscrape
+apt install python3 python3-requests python3-bs4
 ```
 
-Caso já tenha o pip instalado e queira instalar as dependencias rode:
+Ou, com o pip:
 ```
-pip3 install requirements.txt
+pip3 install -r requirements.txt
 ```
 
 Copie o arquivo sefaznfe.py para /usr/lib/zabbix/externalscripts, altere suas permissões para o usuários zabbix. 
@@ -51,13 +55,19 @@ chmod a+x /usr/lib/zabbix/externalscripts/sefaznfe.py
 - 1: 🟢DISPONIVEL
 - 2: 🟡INDISPONIVEL
 - 0: 🔴OFFLINE
-- 5: ⚪SEM DADOS
+- 5: ⚪SEM DADOS (o portal não informa status para o serviço)
 
 ### O resultado sem erro para TEMPO.MED
-- 1: 🟢DISPONIVEL
-- 2: 🟡INTERMITENTE
-- 0: 🔴CRITICO
+- 1: 🟢DISPONIVEL (menos de 200 ms)
+- 2: 🟡INTERMITENTE (de 200 a 999 ms)
+- 0: 🔴CRITICO (1000 ms ou mais)
 - 5: ⚪SEM DADOS
+
+### Erro na coleta (qualquer STATUS)
+- 3: ⚠️ERRO NA COLETA: portal inacessível, tempo esgotado ou layout da página mudou. O template tem um trigger para 3 erros seguidos.
+
+### Tempo de resposta
+O portal costuma levar de 4 a 10 s para responder. O script tem limite de 25 s, e os itens do template usam timeout de 30 s. Se você mudar um desses valores, o timeout do item precisa continuar maior que o limite do script.
 
 # Como Usar
 Para usar os templates deste repositório, siga estas etapas:

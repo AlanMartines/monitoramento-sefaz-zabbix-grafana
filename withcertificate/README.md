@@ -25,12 +25,14 @@ Para configurar os arquivos de certificado SSL e chave SSL no servidor Zabbix, s
 
 3. **Adicione ou edite as seguintes linhas:**
 
-   Adicione ou modifique as linhas abaixo com os caminhos dos seus arquivos de certificado e chave SSL:
+   Os cenários web procuram o certificado e a chave nos **diretórios** definidos por `SSLCertLocation` e `SSLKeyLocation`. Nos cenários, informe só o nome do arquivo (`sefaz_cert.pem` e `sefaz_cert.key`). Não use `TLSCertFile`/`TLSKeyFile`, que servem para a criptografia entre os componentes do Zabbix.
 
    ```bash
-	TLSCertFile=/caminho/para/sefaz_cert.pem
-	TLSKeyFile=/caminho/para/sefaz_cert.key
-	 ```
+   SSLCertLocation=/caminho/para/certificados
+   SSLKeyLocation=/caminho/para/chaves
+   ```
+
+   Se os cenários rodarem num Zabbix Proxy, faça a mesma configuração no `zabbix_proxy.conf`.
 
 4. **Salve as alterações e saia do editor:**
 
@@ -45,7 +47,7 @@ Para configurar os arquivos de certificado SSL e chave SSL no servidor Zabbix, s
 	sudo systemctl restart zabbix-server
 	 ```
 
-Certifique-se de substituir `/caminho/para/` pelo caminho real onde os arquivos `sefaz_cert.pem` e `sefaz_cert.key` estão localizados.
+Certifique-se de substituir `/caminho/para/...` pelos diretórios reais onde ficam `sefaz_cert.pem` e `sefaz_cert.key`. Os arquivos precisam poder ser lidos pelo usuário `zabbix`.
 
 ## Como Usar
 

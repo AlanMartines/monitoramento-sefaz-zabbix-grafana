@@ -19,7 +19,7 @@ zabbix_export:
           trends: 30d
           valuemap:
             name: SEFAZ
-          timeout: 5s
+          timeout: 30s
           tags:
             - tag: Application
               value: 'Consulta Sefaz NF-e'
@@ -41,7 +41,7 @@ zabbix_export:
           trends: 30d
           valuemap:
             name: SEFAZ
-          timeout: 5s
+          timeout: 30s
           tags:
             - tag: Application
               value: 'Consulta Sefaz NF-e'
@@ -63,7 +63,7 @@ zabbix_export:
           trends: 30d
           valuemap:
             name: SEFAZ
-          timeout: 5s
+          timeout: 30s
           tags:
             - tag: Application
               value: 'Consulta Sefaz NF-e'
@@ -85,7 +85,7 @@ zabbix_export:
           trends: 30d
           valuemap:
             name: SEFAZ
-          timeout: 5s
+          timeout: 30s
           tags:
             - tag: Application
               value: 'Consulta Sefaz NF-e'
@@ -107,7 +107,7 @@ zabbix_export:
           trends: 30d
           valuemap:
             name: SEFAZ
-          timeout: 5s
+          timeout: 30s
           tags:
             - tag: Application
               value: 'Consulta Sefaz NF-e'
@@ -129,7 +129,7 @@ zabbix_export:
           trends: 30d
           valuemap:
             name: SEFAZ
-          timeout: 5s
+          timeout: 30s
           tags:
             - tag: Application
               value: 'Consulta Sefaz NF-e'
@@ -151,7 +151,7 @@ zabbix_export:
           trends: 30d
           valuemap:
             name: SEFAZ
-          timeout: 5s
+          timeout: 30s
           tags:
             - tag: Application
               value: 'Consulta Sefaz NF-e'
@@ -164,6 +164,11 @@ zabbix_export:
               expression: 'last(/Template_Sefaz_NFe_SdRedes/sefaznfe.py[{$LINK}, {$AUT}, SERVICO],#1)=2'
               name: 'Serviço Status Serviço na {HOST.NAME} está lento.'
               priority: AVERAGE
+            - uuid: ec07671e28144c8eb4b3ccee0f65a5c2
+              expression: 'count(/Template_Sefaz_NFe_SdRedes/sefaznfe.py[{$LINK}, {$AUT}, SERVICO],#3,"eq","3")=3'
+              name: 'Falha na coleta de status da Sefaz para {HOST.NAME} (portal inacessível ou layout mudou).'
+              priority: WARNING
+              description: 'As 3 últimas execuções do sefaznfe.py retornaram 3 (erro na coleta). Rode manualmente com SEFAZ_NFE_DEBUG=1 para ver o motivo.'
         - uuid: 382c1cd72e9240acaf535da249fe01a6
           name: 'Tempo Médio'
           type: EXTERNAL
@@ -171,10 +176,9 @@ zabbix_export:
           delay: 120s
           history: 7d
           trends: 30d
-          units: ms
           valuemap:
             name: SEFAZ
-          timeout: 5s
+          timeout: 30s
           tags:
             - tag: Application
               value: 'Consulta Sefaz NF-e'
@@ -197,6 +201,8 @@ zabbix_export:
               newvalue: Disponível
             - value: '2'
               newvalue: Indisponível
+            - value: '3'
+              newvalue: 'Erro na coleta'
             - value: '5'
               newvalue: 'Sem Dados'
   graphs:
