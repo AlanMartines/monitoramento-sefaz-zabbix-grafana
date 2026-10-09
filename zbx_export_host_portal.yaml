@@ -1,0 +1,16 @@
+zabbix_export:
+  version: '7.0'
+  host_groups:
+  - uuid: 47a9e1806d8e421796a4d68e5d19d40a
+    name: Monitoramento Sefaz
+  hosts:
+  - host: SEFAZ_NFE_PORTAL
+    name: Sefaz NF-e Portal
+    templates:
+    - name: Template_Sefaz_NFe_Portal
+    groups:
+    - name: Monitoramento Sefaz
+    interfaces:
+    - ip: 127.0.0.1
+      interface_ref: if1
+    inventory_mode: DISABLED

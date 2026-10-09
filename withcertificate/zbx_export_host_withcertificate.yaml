@@ -1,0 +1,388 @@
+zabbix_export:
+  version: '7.0'
+  host_groups:
+    - uuid: 7fa3675254c14d0f8c47334eb0c70f30
+      name: 'Web Check'
+  hosts:
+    - host: Sefaz
+      name: Sefaz
+      groups:
+        - name: 'Web Check'
+      interfaces:
+        - interface_ref: if1
+      httptests:
+        - name: AM
+          ssl_cert_file: sefaz_cert.pem
+          ssl_key_file: sefaz_cert.key
+          steps:
+            - name: NfeStatusServico
+              url: 'https://nfe.sefaz.am.gov.br/services2/services/NfeStatusServico4'
+              status_codes: '200'
+            - name: NfeInutilizacao
+              url: 'https://nfe.sefaz.am.gov.br/services2/services/NfeInutilizacao4'
+              status_codes: '200'
+            - name: NfeConsultaProtocolo
+              url: 'https://nfe.sefaz.am.gov.br/services2/services/NfeConsulta4'
+              status_codes: '200'
+            - name: RecepcaoEvento
+              url: 'https://nfe.sefaz.am.gov.br/services2/services/RecepcaoEvento4'
+              status_codes: '200'
+            - name: NFeAutorizacao
+              url: 'https://nfe.sefaz.am.gov.br/services2/services/NfeAutorizacao4'
+              status_codes: '200'
+            - name: NFeRetAutorizacao
+              url: 'https://nfe.sefaz.am.gov.br/services2/services/NfeRetAutorizacao4'
+              status_codes: '200'
+          tags:
+            - tag: Application
+              value: Sefaz
+        - name: BA
+          ssl_cert_file: sefaz_cert.pem
+          ssl_key_file: sefaz_cert.key
+          steps:
+            - name: NfeStatusServico
+              url: 'https://nfe.sefaz.ba.gov.br/webservices/NFeStatusServico4/NFeStatusServico4.asmx'
+              status_codes: '200'
+            - name: NfeInutilizacao
+              url: 'https://nfe.sefaz.ba.gov.br/webservices/NFeInutilizacao4/NFeInutilizacao4.asmx'
+              status_codes: '200'
+            - name: NfeConsultaProtocolo
+              url: 'https://nfe.sefaz.ba.gov.br/webservices/NFeConsultaProtocolo4/NFeConsultaProtocolo4.asmx'
+              status_codes: '200'
+            - name: RecepcaoEvento
+              url: 'https://nfe.sefaz.ba.gov.br/webservices/NFeRecepcaoEvento4/NFeRecepcaoEvento4.asmx'
+              status_codes: '200'
+            - name: NFeAutorizacao
+              url: 'https://nfe.sefaz.ba.gov.br/webservices/NFeAutorizacao4/NFeAutorizacao4.asmx'
+              status_codes: '200'
+            - name: NFeRetAutorizacao
+              url: 'https://nfe.sefaz.ba.gov.br/webservices/NFeRetAutorizacao4/NFeRetAutorizacao4.asmx'
+              status_codes: '200'
+            - name: NfeConsultaCadastro
+              url: 'https://nfe.sefaz.ba.gov.br/webservices/CadConsultaCadastro4/CadConsultaCadastro4.asmx'
+              status_codes: '200'
+          tags:
+            - tag: Application
+              value: Sefaz
+        - name: CE
+          ssl_cert_file: sefaz_cert.pem
+          ssl_key_file: sefaz_cert.key
+          steps:
+            - name: NfeStatusServico
+              url: 'https://nfe.sefaz.ce.gov.br/nfe4/services/NFeStatusServico4?wsdl'
+              status_codes: '200'
+            - name: NfeInutilizacao
+              url: 'https://nfe.sefaz.ce.gov.br/nfe4/services/NFeInutilizacao4?wsdl'
+              status_codes: '200'
+            - name: NfeConsultaProtocolo
+              url: 'https://nfe.sefaz.ce.gov.br/nfe4/services/NFeConsultaProtocolo4?wsdl'
+              status_codes: '200'
+            - name: RecepcaoEvento
+              url: 'https://nfe.sefaz.ce.gov.br/nfe4/services/NFeRecepcaoEvento4?wsdl'
+              status_codes: '200'
+            - name: NFeAutorizacao
+              url: 'https://nfe.sefaz.ce.gov.br/nfe4/services/NFeAutorizacao4?wsdl'
+              status_codes: '200'
+            - name: NFeRetAutorizacao
+              url: 'https://nfe.sefaz.ce.gov.br/nfe4/services/NFeRetAutorizacao4?wsdl'
+              status_codes: '200'
+            - name: NfeConsultaCadastro
+              url: 'https://nfe.sefaz.ce.gov.br/nfe4/services/CadConsultaCadastro4?wsdl'
+              status_codes: '200'
+          tags:
+            - tag: Application
+              value: Sefaz
+        - name: GO
+          ssl_cert_file: sefaz_cert.pem
+          ssl_key_file: sefaz_cert.key
+          steps:
+            - name: NfeStatusServico
+              url: 'https://nfe.sefaz.go.gov.br/nfe/services/NFeStatusServico4?wsdl'
+              status_codes: '200'
+            - name: NfeInutilizacao
+              url: 'https://nfe.sefaz.go.gov.br/nfe/services/NFeInutilizacao4?wsdl'
+              status_codes: '200'
+            - name: NfeConsultaProtocolo
+              url: 'https://nfe.sefaz.go.gov.br/nfe/services/NFeConsultaProtocolo4?wsdl'
+              status_codes: '200'
+            - name: RecepcaoEvento
+              url: 'https://nfe.sefaz.go.gov.br/nfe/services/NFeRecepcaoEvento4?wsdl'
+              status_codes: '200'
+            - name: NFeAutorizacao
+              url: 'https://nfe.sefaz.go.gov.br/nfe/services/NFeAutorizacao4?wsdl'
+              status_codes: '200'
+            - name: NFeRetAutorizacao
+              url: 'https://nfe.sefaz.go.gov.br/nfe/services/NFeRetAutorizacao4?wsdl'
+              status_codes: '200'
+            - name: NfeConsultaCadastro
+              url: 'https://nfe.sefaz.go.gov.br/nfe/services/CadConsultaCadastro4?wsdl'
+              status_codes: '200'
+          tags:
+            - tag: Application
+              value: Sefaz
+        - name: MG
+          ssl_cert_file: sefaz_cert.pem
+          ssl_key_file: sefaz_cert.key
+          steps:
+            - name: NfeStatusServico
+              url: 'https://nfe.fazenda.mg.gov.br/nfe2/services/NFeStatusServico4'
+              status_codes: '200'
+            - name: NfeInutilizacao
+              url: 'https://nfe.fazenda.mg.gov.br/nfe2/services/NFeInutilizacao4'
+              status_codes: '200'
+            - name: NfeConsultaProtocolo
+              url: 'https://nfe.fazenda.mg.gov.br/nfe2/services/NFeConsultaProtocolo4'
+              status_codes: '200'
+            - name: RecepcaoEvento
+              url: 'https://nfe.fazenda.mg.gov.br/nfe2/services/NFeRecepcaoEvento4'
+              status_codes: '200'
+            - name: NFeAutorizacao
+              url: 'https://nfe.fazenda.mg.gov.br/nfe2/services/NFeAutorizacao4'
+              status_codes: '200'
+            - name: NFeRetAutorizacao
+              url: 'https://nfe.fazenda.mg.gov.br/nfe2/services/NFeRetAutorizacao4'
+              status_codes: '200'
+          tags:
+            - tag: Application
+              value: Sefaz
+        - name: MS
+          ssl_cert_file: sefaz_cert.pem
+          ssl_key_file: sefaz_cert.key
+          steps:
+            - name: NfeStatusServico
+              url: 'https://nfe.sefaz.ms.gov.br/ws/NFeStatusServico4'
+              status_codes: '200'
+            - name: NfeInutilizacao
+              url: 'https://nfe.sefaz.ms.gov.br/ws/NFeInutilizacao4'
+              status_codes: '200'
+            - name: NfeConsultaProtocolo
+              url: 'https://nfe.sefaz.ms.gov.br/ws/NFeConsultaProtocolo4'
+              status_codes: '200'
+            - name: RecepcaoEvento
+              url: 'https://nfe.sefaz.ms.gov.br/ws/NFeRecepcaoEvento4'
+              status_codes: '200'
+            - name: NFeAutorizacao
+              url: 'https://nfe.sefaz.ms.gov.br/ws/NFeAutorizacao4'
+              status_codes: '200'
+            - name: NFeRetAutorizacao
+              url: 'https://nfe.sefaz.ms.gov.br/ws/NFeRetAutorizacao4'
+              status_codes: '200'
+            - name: NfeConsultaCadastro
+              url: 'https://nfe.sefaz.ms.gov.br/ws/CadConsultaCadastro4'
+              status_codes: '200'
+          tags:
+            - tag: Application
+              value: Sefaz
+        - name: MT
+          ssl_cert_file: sefaz_cert.pem
+          ssl_key_file: sefaz_cert.key
+          steps:
+            - name: NfeStatusServico
+              url: 'https://nfe.sefaz.mt.gov.br/nfews/v2/services/NfeStatusServico4?wsdl'
+              status_codes: '200'
+            - name: NfeInutilizacao
+              url: 'https://nfe.sefaz.mt.gov.br/nfews/v2/services/NfeInutilizacao4?wsdl'
+              status_codes: '200'
+            - name: NfeConsultaProtocolo
+              url: 'https://nfe.sefaz.mt.gov.br/nfews/v2/services/NfeConsulta4?wsdl'
+              status_codes: '200'
+            - name: NfeConsultaCadastro
+              url: 'https://nfe.sefaz.mt.gov.br/nfews/v2/services/CadConsultaCadastro4?wsdl'
+              status_codes: '200'
+            - name: RecepcaoEvento
+              url: 'https://nfe.sefaz.mt.gov.br/nfews/v2/services/RecepcaoEvento4?wsdl'
+              status_codes: '200'
+            - name: NFeAutorizacao
+              url: 'https://nfe.sefaz.mt.gov.br/nfews/v2/services/NfeAutorizacao4?wsdl'
+              status_codes: '200'
+            - name: NFeRetAutorizacao
+              url: 'https://nfe.sefaz.mt.gov.br/nfews/v2/services/NfeRetAutorizacao4?wsdl'
+              status_codes: '200'
+          tags:
+            - tag: Application
+              value: Sefaz
+        - name: PE
+          ssl_cert_file: sefaz_cert.pem
+          ssl_key_file: sefaz_cert.key
+          steps:
+            - name: NfeStatusServico
+              url: 'https://nfe.sefaz.pe.gov.br/nfe-service/services/NFeStatusServico4'
+              status_codes: '200'
+            - name: NfeInutilizacao
+              url: 'https://nfe.sefaz.pe.gov.br/nfe-service/services/NFeInutilizacao4'
+              status_codes: '200'
+            - name: NfeConsultaProtocolo
+              url: 'https://nfe.sefaz.pe.gov.br/nfe-service/services/NFeConsultaProtocolo4'
+              status_codes: '200'
+            - name: RecepcaoEvento
+              url: 'https://nfe.sefaz.pe.gov.br/nfe-service/services/NFeRecepcaoEvento4'
+              status_codes: '200'
+            - name: NFeAutorizacao
+              url: 'https://nfe.sefaz.pe.gov.br/nfe-service/services/NFeAutorizacao4'
+              status_codes: '200'
+            - name: NFeRetAutorizacao
+              url: 'https://nfe.sefaz.pe.gov.br/nfe-service/services/NFeRetAutorizacao4'
+              status_codes: '200'
+          tags:
+            - tag: Application
+              value: Sefaz
+        - name: PR
+          ssl_cert_file: sefaz_cert.pem
+          ssl_key_file: sefaz_cert.key
+          steps:
+            - name: NfeStatusServico
+              url: 'https://nfe.sefa.pr.gov.br/nfe/NFeStatusServico4?wsdl'
+              status_codes: '200'
+            - name: NfeInutilizacao
+              url: 'https://nfe.sefa.pr.gov.br/nfe/NFeInutilizacao4?wsdl'
+              status_codes: '200'
+            - name: NfeConsultaProtocolo
+              url: 'https://nfe.sefa.pr.gov.br/nfe/NFeConsultaProtocolo4?wsdl'
+              status_codes: '200'
+            - name: NfeConsultaCadastro
+              url: 'https://nfe.sefa.pr.gov.br/nfe/CadConsultaCadastro4?wsdl'
+              status_codes: '200'
+            - name: RecepcaoEvento
+              url: 'https://nfe.sefa.pr.gov.br/nfe/NFeRecepcaoEvento4?wsdl'
+              status_codes: '200'
+            - name: NFeAutorizacao
+              url: 'https://nfe.sefa.pr.gov.br/nfe/NFeAutorizacao4?wsdl'
+              status_codes: '200'
+            - name: NFeRetAutorizacao
+              url: 'https://nfe.sefa.pr.gov.br/nfe/NFeRetAutorizacao4?wsdl'
+              status_codes: '200'
+          tags:
+            - tag: Application
+              value: Sefaz
+        - name: RS
+          ssl_cert_file: sefaz_cert.pem
+          ssl_key_file: sefaz_cert.key
+          steps:
+            - name: NfeStatusServico
+              url: 'https://nfe.sefazrs.rs.gov.br/ws/NfeStatusServico/NfeStatusServico4.asmx'
+              status_codes: '200'
+            - name: NfeInutilizacao
+              url: 'https://nfe.sefazrs.rs.gov.br/ws/nfeinutilizacao/nfeinutilizacao4.asmx'
+              status_codes: '200'
+            - name: NfeConsultaProtocolo
+              url: 'https://nfe.sefazrs.rs.gov.br/ws/NfeConsulta/NfeConsulta4.asmx'
+              status_codes: '200'
+            - name: NfeConsultaCadastro
+              url: 'https://cad.sefazrs.rs.gov.br/ws/cadconsultacadastro/cadconsultacadastro4.asmx'
+              status_codes: '200'
+            - name: RecepcaoEvento
+              url: 'https://nfe.sefazrs.rs.gov.br/ws/recepcaoevento/recepcaoevento4.asmx'
+              status_codes: '200'
+            - name: NFeAutorizacao
+              url: 'https://nfe.sefazrs.rs.gov.br/ws/NfeAutorizacao/NFeAutorizacao4.asmx'
+              status_codes: '200'
+            - name: NFeRetAutorizacao
+              url: 'https://nfe.sefazrs.rs.gov.br/ws/NfeRetAutorizacao/NFeRetAutorizacao4.asmx'
+              status_codes: '200'
+          tags:
+            - tag: Application
+              value: Sefaz
+        - name: SP
+          ssl_cert_file: sefaz_cert.pem
+          ssl_key_file: sefaz_cert.key
+          steps:
+            - name: NfeStatusServico
+              url: 'https://nfe.fazenda.sp.gov.br/ws/nfestatusservico4.asmx'
+              status_codes: '200'
+            - name: NfeInutilizacao
+              url: 'https://nfe.fazenda.sp.gov.br/ws/nfeinutilizacao4.asmx'
+              status_codes: '200'
+            - name: NfeConsultaProtocolo
+              url: 'https://nfe.fazenda.sp.gov.br/ws/nfeconsultaprotocolo4.asmx'
+              status_codes: '200'
+            - name: RecepcaoEvento
+              url: 'https://nfe.fazenda.sp.gov.br/ws/nferecepcaoevento4.asmx'
+              status_codes: '200'
+            - name: NFeAutorizacao
+              url: 'https://nfe.fazenda.sp.gov.br/ws/nfeautorizacao4.asmx'
+              status_codes: '200'
+            - name: NFeRetAutorizacao
+              url: 'https://nfe.fazenda.sp.gov.br/ws/nferetautorizacao4.asmx'
+              status_codes: '200'
+            - name: NfeConsultaCadastro
+              url: 'https://nfe.fazenda.sp.gov.br/ws/cadconsultacadastro4.asmx'
+              status_codes: '200'
+          tags:
+            - tag: Application
+              value: Sefaz
+        - name: SVAN
+          ssl_cert_file: sefaz_cert.pem
+          ssl_key_file: sefaz_cert.key
+          steps:
+            - name: NfeStatusServico
+              url: 'https://www.sefazvirtual.fazenda.gov.br/NFeStatusServico4/NFeStatusServico4.asmx'
+              status_codes: '200'
+            - name: NfeInutilizacao
+              url: 'https://www.sefazvirtual.fazenda.gov.br/NFeInutilizacao4/NFeInutilizacao4.asmx'
+              status_codes: '200'
+            - name: NfeConsultaProtocolo
+              url: 'https://www.sefazvirtual.fazenda.gov.br/NFeConsultaProtocolo4/NFeConsultaProtocolo4.asmx'
+              status_codes: '200'
+            - name: RecepcaoEvento
+              url: 'https://www.sefazvirtual.fazenda.gov.br/NFeRecepcaoEvento4/NFeRecepcaoEvento4.asmx'
+              status_codes: '200'
+            - name: NFeAutorizacao
+              url: 'https://www.sefazvirtual.fazenda.gov.br/NFeAutorizacao4/NFeAutorizacao4.asmx'
+              status_codes: '200'
+            - name: NFeRetAutorizacao
+              url: 'https://www.sefazvirtual.fazenda.gov.br/NFeRetAutorizacao4/NFeRetAutorizacao4.asmx'
+              status_codes: '200'
+          tags:
+            - tag: Application
+              value: Sefaz
+        - name: SVC-AN
+          ssl_cert_file: sefaz_cert.pem
+          ssl_key_file: sefaz_cert.key
+          steps:
+            - name: NfeStatusServico
+              url: 'https://www.svc.fazenda.gov.br/NFeStatusServico4/NFeStatusServico4.asmx'
+              status_codes: '200'
+            - name: NfeConsultaProtocolo
+              url: 'https://www.svc.fazenda.gov.br/NFeConsultaProtocolo4/NFeConsultaProtocolo4.asmx'
+              status_codes: '200'
+            - name: RecepcaoEvento
+              url: 'https://www.svc.fazenda.gov.br/NFeRecepcaoEvento4/NFeRecepcaoEvento4.asmx'
+              status_codes: '200'
+            - name: NFeAutorizacao
+              url: 'https://www.svc.fazenda.gov.br/NFeAutorizacao4/NFeAutorizacao4.asmx'
+              status_codes: '200'
+            - name: NFeRetAutorizacao
+              url: 'https://www.svc.fazenda.gov.br/NFeRetAutorizacao4/NFeRetAutorizacao4.asmx'
+              status_codes: '200'
+          tags:
+            - tag: Application
+              value: Sefaz
+        - name: SVRS
+          ssl_cert_file: sefaz_cert.pem
+          ssl_key_file: sefaz_cert.key
+          steps:
+            - name: NfeStatusServico
+              url: 'https://nfe.svrs.rs.gov.br/ws/NfeStatusServico/NfeStatusServico4.asmx'
+              status_codes: '200'
+            - name: NfeInutilizacao
+              url: 'https://nfe.svrs.rs.gov.br/ws/nfeinutilizacao/nfeinutilizacao4.asmx'
+              status_codes: '200'
+            - name: NfeConsultaProtocolo
+              url: 'https://nfe.svrs.rs.gov.br/ws/NfeConsulta/NfeConsulta4.asmx'
+              status_codes: '200'
+            - name: RecepcaoEvento
+              url: 'https://nfe.svrs.rs.gov.br/ws/recepcaoevento/recepcaoevento4.asmx'
+              status_codes: '200'
+            - name: NFeAutorizacao
+              url: 'https://nfe.svrs.rs.gov.br/ws/NfeAutorizacao/NFeAutorizacao4.asmx'
+              status_codes: '200'
+            - name: NFeRetAutorizacao
+              url: 'https://nfe.svrs.rs.gov.br/ws/NfeRetAutorizacao/NFeRetAutorizacao4.asmx'
+              status_codes: '200'
+            - name: NfeConsultaCadastro
+              url: 'https://cad.svrs.rs.gov.br/ws/cadconsultacadastro/cadconsultacadastro4.asmx'
+              status_codes: '200'
+          tags:
+            - tag: Application
+              value: Sefaz
+      inventory_mode: AUTOMATIC

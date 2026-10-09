@@ -69,18 +69,62 @@ chmod a+x /usr/lib/zabbix/externalscripts/sefaznfe.py
 ### Tempo de resposta
 O portal costuma levar de 4 a 10 s para responder. O script tem limite de 25 s, e os itens do template usam timeout de 30 s. Se você mudar um desses valores, o timeout do item precisa continuar maior que o limite do script.
 
-# Como Usar
-Para usar os templates deste repositório, siga estas etapas:
+### Modo JSON
+```
+./sefaznfe.py https://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx JSON
+```
+Lê o portal uma vez e devolve todos os autorizadores:
+```json
+{"dados": {"AM": {"AUTORIZACAO": 1, "RETORNO.AUT": 1, ..., "TEMPO.MED": 5}, "BA": {...}}}
+```
+`TEMPO.MED.MS` (tempo médio em ms) só aparece quando o portal informa o valor. Em caso de falha, a saída é `{"erro": "<motivo>"}`.
 
-1. Importe os templates do Zabbix.
-2. Importe o dashboard do Grafana.
-3. Monitore o sistema SEFAZ e visualize os dados no Grafana.
+# Como Usar
+
+## Template "Sefaz NF-e Portal" (recomendado)
+Arquivos: `zbx_export_template_portal.yaml` e `zbx_export_host_portal.yaml`. Requer Zabbix 7.0.
+
+1. Importe `zbx_export_template_portal.yaml` e depois `zbx_export_host_portal.yaml`.
+2. Pronto: o host **Sefaz NF-e Portal** lê o portal **uma vez por minuto** e descobre sozinho os autorizadores listados (AM, BA, GO, MG, MS, MT, PE, PR, RS, SP, SVAN, SVRS, SVC-AN, SVC-RS).
+
+Como funciona:
+- **Item mestre** `sefaznfe.py[{$SEFAZ.URL},JSON]`: uma única execução do script por intervalo, em vez de uma por serviço e por estado.
+- **Descoberta (LLD)**: cria, para cada autorizador, os 8 itens de status, o tempo médio em ms e os triggers. Um autorizador que sai do portal é removido após 30 dias.
+- **Alertas com confirmação**: offline/crítico (HIGH) e instável/intermitente (AVERAGE) só disparam após **3 leituras seguidas**.
+- **Falha na coleta**: se o script não conseguir ler o portal três vezes seguidas, ou parar de enviar dados por 10 minutos, dispara um único alerta, "Sefaz NF-e: falha na coleta do portal". Os itens de status mantêm o último valor, e os demais triggers dependem desse, então não há avalanche de alertas.
+
+Macros do template:
+
+| Macro | Padrão | Uso |
+|---|---|---|
+| `{$SEFAZ.URL}` | `https://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx` | Página consultada |
+| `{$SEFAZ.INTERVALO}` | `1m` | Intervalo de leitura |
+
+## Template legado (um host por autorizador)
+Arquivos: `zbx_export_templates.yaml` e `zbx_export_hosts.yaml`. Funciona, mas executa o script 8 vezes por host a cada 2 minutos (cerca de 120 execuções). Mantido porque o dashboard do Grafana ainda usa esses hosts. O host `SEFAZ_CE` não tem linha no portal (o CE é atendido pelo SVRS) e retorna 3.
+
+## Grafana
+Requer o plugin [Zabbix](https://grafana.com/grafana/plugins/alexanderzobnin-zabbix-app/) com um datasource configurado.
+
+- **`Sefaz NF-e Portal.json` (recomendado)**: para o template "Sefaz NF-e Portal". A variável **Autorizador** é preenchida a partir dos itens descobertos no Zabbix, e um painel é repetido para cada autorizador, então novos autorizadores aparecem sozinhos. O dashboard também mostra o status da coleta, o histórico do Status Serviço e o tempo médio em ms. Na importação, escolha o datasource Zabbix.
+- **`Consultar Disponibilidade NF-e Sefaz.json` (legado)**: para os hosts do template legado, com um painel por serviço e por estado.
+
+## Com certificado digital
+A pasta [withcertificate](withcertificate/README.md) tem uma abordagem alternativa, sem manutenção ativa: cenários web que chamam diretamente os webservices de cada SEFAZ usando o certificado digital da empresa.
+
+# Desenvolvimento
+```
+pip install -r requirements.txt pytest pyyaml ruff
+ruff check .
+pytest tests
+```
+Os testes usam a tabela real do portal salva em `tests/fixtures/` e não acessam a rede. O CI roda em Python 3.8 e 3.12.
 
 # Testado com
-- Zabbix: v7.0
-- Grafana: v11
+- Zabbix: v7.0 (7.0.31)
+- Grafana: v11 (11.6.0), plugin Zabbix 6.9.1
 
-# [Downgrade para Zabbix v5.4:](https://github.com/AlanMartines/monitoramento-sefaz-zabbix-grafana/issues/2#issue-2629057062)
+# [Downgrade para Zabbix v5.4 (apenas template legado):](https://github.com/AlanMartines/monitoramento-sefaz-zabbix-grafana/issues/2#issue-2629057062)
 **No arquivo YAML altere a versão de 7.0 para 5.4 e mude a tag do grupo, depois de criar os grupos manualmente, realize a importação** Obs: Lembre-se de não marcar a opção de CRIAR NOVO GRUPO no zabbix, apenas editar o atual existente.
  
 ### Atual:

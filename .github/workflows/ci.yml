@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # 3.8: servidores Zabbix antigos (ex: RHEL 8); 3.12: atual
+        python-version: ["3.8", "3.12"]
+    container: python:${{ matrix.python-version }}-slim
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Instalar dependências
+        run: pip install -r requirements.txt pytest pyyaml ruff
+      - name: Lint
+        run: ruff check .
+      - name: Testes
+        run: pytest -q tests

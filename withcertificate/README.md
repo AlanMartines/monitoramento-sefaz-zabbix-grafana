@@ -2,12 +2,17 @@
 
 ## Visão Geral
 
-Este repositório contém templates para monitoramento do sistema SEFAZ usando Zabbix e exibição dos dados utilizando Grafana. Os templates do Zabbix incluem cenários web para cada URL da SEFAZ que está sendo monitorada, com cada cenário web correspondendo a um estado brasileiro. Na aba de autenticação de cada cenário web, é necessário inserir o nome do arquivo de certificado SSL e do arquivo de chave SSL para acessar as URLs da SEFAZ. Por padrão, os nomes desses arquivos são:
+> **Abordagem alternativa, sem manutenção ativa.** Para a maioria dos casos, use o template "Sefaz NF-e Portal" do [README principal](../README.md), que não precisa de certificado. Esta pasta serve para quem quer testar diretamente os webservices de cada SEFAZ com o certificado digital da empresa.
+
+Esta pasta contém o host `Sefaz` (`zbx_export_host_withcertificate.yaml`, formato Zabbix 7.0) com 14 cenários web, um por autorizador. Cada cenário faz uma requisição GET aos webservices da NF-e 4.00 daquele autorizador e espera HTTP 200. Na aba de autenticação de cada cenário web, é necessário inserir o nome do arquivo de certificado SSL e do arquivo de chave SSL para acessar as URLs da SEFAZ. Por padrão, os nomes desses arquivos são:
 
 - sefaz_cert.pem
 - sefaz_cert.key
 
-No Grafana, o plugin Grafana-worldmap-panel deve ser instalado. Uma vez instalado, o dashboard pode ser importado e exibirá as coordenadas de geolocalização de cada estado do Brasil a partir de um arquivo JSON neste repositório.
+Limitações conhecidas:
+- O host não tem triggers. Crie os seus (por exemplo, sobre `web.test.fail[<cenário>]`) se quiser alertas.
+- As URLs dos webservices são as de 2019. Confira-as na página de [webservices](https://www.nfe.fazenda.gov.br/portal/webServices.aspx) do portal antes de usar.
+- O dashboard `Zabbix - Monitoramento Sefaz.json` usa os painéis antigos `singlestat`, `graph` e `grafana-worldmap-panel`. O Grafana 11 converte esses painéis automaticamente, mas o mapa fica sem fundo ("API KEY REQUIRED"). Troque a camada base do painel Geomap ou remova o mapa.
 
 Para configurar os arquivos de certificado SSL e chave SSL no servidor Zabbix, siga estas etapas:
 
@@ -53,10 +58,9 @@ Certifique-se de substituir `/caminho/para/...` pelos diretórios reais onde fic
 
 Para usar os templates deste repositório, siga estas etapas:
 
-1. Importe os templates do Zabbix.
-2. Insira o nome do arquivo de certificado SSL e do arquivo de chave SSL na aba de autenticação de cada cenário web.
-3. Instale o plugin Grafana-worldmap-panel.
-4. Importe o dashboard do Grafana.
-5. Monitore o sistema SEFAZ e visualize os dados no Grafana.
+1. Configure `SSLCertLocation`/`SSLKeyLocation` como descrito acima e copie o certificado e a chave para esses diretórios.
+2. Importe `zbx_export_host_withcertificate.yaml` no Zabbix 7.0. O grupo `Web Check` é criado se não existir.
+3. Se os seus arquivos tiverem outros nomes, ajuste o certificado e a chave na aba de autenticação de cada cenário web.
+4. Opcional: importe o dashboard `Zabbix - Monitoramento Sefaz.json` no Grafana (veja as limitações acima).
 
 [GIT original](https://github.com/thePaulRichard/zabbix-templates/tree/main/sefaz)

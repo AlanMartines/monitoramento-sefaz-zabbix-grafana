@@ -13,6 +13,13 @@ Verifica o status dos serviços do portal da NFE e retorna:
 
 Uso:
     python sefaznfe.py <URL> <AUTORIZADOR> <STATUS>
+    python sefaznfe.py <URL> JSON
+
+O modo JSON lê o portal uma vez e retorna todos os autorizadores. É o modo
+usado pelo item mestre do template "Sefaz NF-e Portal":
+    {"dados": {"AM": {"AUTORIZACAO": 1, ..., "TEMPO.MED": 5}, ...}}
+"TEMPO.MED.MS" (tempo médio em ms) só aparece quando o portal informa o valor.
+Em caso de falha: {"erro": "<motivo>"}
 
 Diagnóstico (mostra o motivo de um código 3):
     SEFAZ_NFE_DEBUG=1 python sefaznfe.py <URL> <AUTORIZADOR> <STATUS>
@@ -23,10 +30,11 @@ Exemplo:
 
 import os
 import sys
+import json
 import time
 import logging
 import unicodedata
-from typing import Optional, List
+from typing import Optional, List, Dict
 from urllib.parse import urlparse
 
 import requests
@@ -188,13 +196,17 @@ class NFEStatusChecker:
 
         return STATUS_CODES['SEM_DADOS']
 
+    def _parse_tempo_medio(self, tempo_text: str) -> Optional[int]:
+        """Extrai o tempo médio em ms; None quando o portal não informa (ex: '-')."""
+        tempo_clean = ''.join(filter(str.isdigit, tempo_text))
+        return int(tempo_clean) if tempo_clean else None
+
     def _handle_tempo_medio(self, tempo_text: str) -> int:
         """Processa tempo médio e retorna status baseado na performance."""
-        tempo_clean = ''.join(filter(str.isdigit, tempo_text))
-        if not tempo_clean:
+        tempo_medio = self._parse_tempo_medio(tempo_text)
+        if tempo_medio is None:
             return STATUS_CODES['SEM_DADOS']
 
-        tempo_medio = int(tempo_clean)
         if tempo_medio < 200:
             return STATUS_CODES['DISPONIVEL']
         if tempo_medio < 1000:
@@ -233,19 +245,65 @@ class NFEStatusChecker:
             logger.error(str(e))
             return STATUS_CODES['ERRO_COLETA']
 
-        target_cell = cells[posicao]
+        return self._cell_status(cells[posicao], status_type)
 
+    def _cell_status(self, cell, status_type: str) -> int:
+        """Converte uma célula da tabela no código de status."""
         if status_type == "TEMPO.MED":
-            return self._handle_tempo_medio(target_cell.get_text(strip=True))
+            return self._handle_tempo_medio(cell.get_text(strip=True))
 
-        img = target_cell.find('img')
+        img = cell.find('img')
         if img and img.get('src'):
             return self._interpret_status_image(img['src'])
-        return self._interpret_status_image(target_cell.get_text(strip=True))
+        return self._interpret_status_image(cell.get_text(strip=True))
+
+    def get_all_status(self, url: str) -> Dict[str, Dict[str, int]]:
+        """
+        Lê o portal uma única vez e retorna o status de todos os serviços de
+        todos os autorizadores, no formato {"AM": {"AUTORIZACAO": 1, ...}, ...}.
+
+        Raises:
+            CollectError: portal inacessível ou layout inesperado.
+        """
+        table = self._find_table(self._fetch_page(url))
+        colunas = {status_type: self._column_index(table, status_type) for status_type in STATUS_MAP}
+
+        dados = {}
+        for row in table.find_all('tr')[1:]:
+            cells = row.find_all('td')
+            if not cells:
+                continue
+            autorizador = cells[0].get_text(strip=True).upper()
+            if not autorizador:
+                continue
+            servicos = {}
+            for status_type, posicao in colunas.items():
+                if posicao < len(cells):
+                    servicos[status_type] = self._cell_status(cells[posicao], status_type)
+                else:
+                    servicos[status_type] = STATUS_CODES['SEM_DADOS']
+            if colunas['TEMPO.MED'] < len(cells):
+                tempo_ms = self._parse_tempo_medio(cells[colunas['TEMPO.MED']].get_text(strip=True))
+                if tempo_ms is not None:
+                    servicos['TEMPO.MED.MS'] = tempo_ms
+            dados[autorizador] = servicos
+
+        if not dados:
+            raise CollectError("Nenhum autorizador encontrado na tabela")
+        return dados
 
 
 def main():
     """Função principal do script."""
+    if len(sys.argv) == 3 and sys.argv[2].strip().upper() == 'JSON':
+        try:
+            saida = {'dados': NFEStatusChecker().get_all_status(sys.argv[1])}
+        except CollectError as e:
+            logger.error(str(e))
+            saida = {'erro': str(e)}
+        print(json.dumps(saida, ensure_ascii=False, sort_keys=True))
+        return
+
     if len(sys.argv) != 4:
         logger.error(__doc__.strip())
         print(STATUS_CODES['ERRO_COLETA'])

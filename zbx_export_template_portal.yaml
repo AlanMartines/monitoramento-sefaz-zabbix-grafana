@@ -1,0 +1,447 @@
+zabbix_export:
+  version: '7.0'
+  template_groups:
+  - uuid: 7fb31f39713b4a7591897d1416ab29b0
+    name: Templates/Sefaz
+  templates:
+  - uuid: 6504cf5030b74ac08735232455d78301
+    template: Template_Sefaz_NFe_Portal
+    name: Template Sefaz NF-e Portal
+    description: |-
+      Disponibilidade dos serviços de NF-e (portal nfe.fazenda.gov.br). Um item mestre lê o portal uma vez por intervalo; os autorizadores são descobertos automaticamente.
+
+      Requer o script sefaznfe.py em ExternalScripts.
+    vendor:
+      name: monitoramento-sefaz-zabbix-grafana
+      version: 7.0-1
+    groups:
+    - name: Templates/Sefaz
+    items:
+    - uuid: d918c29ad3344f3ebaf09fd3b2dc7e00
+      name: 'Sefaz NF-e: dados do portal'
+      type: EXTERNAL
+      key: sefaznfe.py[{$SEFAZ.URL},JSON]
+      delay: '{$SEFAZ.INTERVALO}'
+      history: 1d
+      value_type: TEXT
+      trends: '0'
+      timeout: 30s
+      description: JSON com o status de todos os autorizadores, gerado por 'sefaznfe.py <URL> JSON'.
+      tags:
+      - tag: component
+        value: coleta
+    - uuid: 88350ade108a4b29aca7b83b9c8b63bf
+      name: 'Sefaz NF-e: status da coleta'
+      type: DEPENDENT
+      key: sefaz.nfe.coleta
+      delay: '0'
+      history: 30d
+      trends: 365d
+      valuemap:
+        name: SEFAZ coleta
+      description: 1 quando o portal foi lido com sucesso; 0 quando o script retornou erro.
+      preprocessing:
+      - type: JAVASCRIPT
+        parameters:
+        - 'return JSON.parse(value).erro ? 0 : 1;'
+        error_handler: CUSTOM_VALUE
+        error_handler_params: '0'
+      master_item:
+        key: sefaznfe.py[{$SEFAZ.URL},JSON]
+      tags:
+      - tag: component
+        value: coleta
+      triggers:
+      - uuid: 05de62cb491643f59af03d2711f7e2e2
+        name: 'Sefaz NF-e: falha na coleta do portal'
+        expression: max(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,#3)=0 or nodata(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,10m)=1
+        priority: AVERAGE
+        description: 'O script não conseguiu ler o portal nas 3 últimas execuções, ou parou de enviar dados. Veja o valor do item ''Sefaz NF-e: dados do portal'' ou rode o script com SEFAZ_NFE_DEBUG=1.'
+    discovery_rules:
+    - uuid: 418836e6c9604e4eb7a68bb59566e103
+      name: Autorizadores NF-e
+      type: DEPENDENT
+      key: sefaz.nfe.autorizadores
+      delay: '0'
+      lifetime: 30d
+      description: Descobre os autorizadores listados no portal (AM, BA, ..., SVRS, SVC-AN, SVC-RS).
+      item_prototypes:
+      - uuid: a1f7fbf4a5924d2c80ef7213e7a8aab8
+        name: '{#AUTORIZADOR}: Autorização'
+        type: DEPENDENT
+        key: sefaz.nfe.status[{#AUTORIZADOR},AUTORIZACAO]
+        delay: '0'
+        history: 30d
+        trends: 365d
+        valuemap:
+          name: SEFAZ
+        preprocessing:
+        - type: JSONPATH
+          parameters:
+          - $.dados['{#AUTORIZADOR}']['AUTORIZACAO']
+          error_handler: DISCARD_VALUE
+        master_item:
+          key: sefaznfe.py[{$SEFAZ.URL},JSON]
+        tags:
+        - tag: autorizador
+          value: '{#AUTORIZADOR}'
+        - tag: servico
+          value: Autorização
+        trigger_prototypes:
+        - uuid: 85098575b29b4b66a0802da2637da823
+          expression: count(/Template_Sefaz_NFe_Portal/sefaz.nfe.status[{#AUTORIZADOR},AUTORIZACAO],#3,"eq","0")=3
+          name: 'Sefaz NF-e {#AUTORIZADOR}: Autorização offline'
+          priority: HIGH
+          description: As 3 últimas leituras do portal indicaram vermelho.
+          dependencies:
+          - name: 'Sefaz NF-e: falha na coleta do portal'
+            expression: max(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,#3)=0 or nodata(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,10m)=1
+        - uuid: 680bb6e1319047f9a42ba28478baed53
+          expression: count(/Template_Sefaz_NFe_Portal/sefaz.nfe.status[{#AUTORIZADOR},AUTORIZACAO],#3,"eq","2")=3
+          name: 'Sefaz NF-e {#AUTORIZADOR}: Autorização instável'
+          priority: AVERAGE
+          description: As 3 últimas leituras do portal indicaram amarelo.
+          dependencies:
+          - name: 'Sefaz NF-e: falha na coleta do portal'
+            expression: max(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,#3)=0 or nodata(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,10m)=1
+      - uuid: 4e05da1f42c6496bbe66d53a88e56d93
+        name: '{#AUTORIZADOR}: Retorno Autorização'
+        type: DEPENDENT
+        key: sefaz.nfe.status[{#AUTORIZADOR},RETORNO.AUT]
+        delay: '0'
+        history: 30d
+        trends: 365d
+        valuemap:
+          name: SEFAZ
+        preprocessing:
+        - type: JSONPATH
+          parameters:
+          - $.dados['{#AUTORIZADOR}']['RETORNO.AUT']
+          error_handler: DISCARD_VALUE
+        master_item:
+          key: sefaznfe.py[{$SEFAZ.URL},JSON]
+        tags:
+        - tag: autorizador
+          value: '{#AUTORIZADOR}'
+        - tag: servico
+          value: Retorno Autorização
+        trigger_prototypes:
+        - uuid: 8d069e7608fd4a70bf5758597727ef19
+          expression: count(/Template_Sefaz_NFe_Portal/sefaz.nfe.status[{#AUTORIZADOR},RETORNO.AUT],#3,"eq","0")=3
+          name: 'Sefaz NF-e {#AUTORIZADOR}: Retorno Autorização offline'
+          priority: HIGH
+          description: As 3 últimas leituras do portal indicaram vermelho.
+          dependencies:
+          - name: 'Sefaz NF-e: falha na coleta do portal'
+            expression: max(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,#3)=0 or nodata(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,10m)=1
+        - uuid: e145de7d546a45179dda9b199cfdc357
+          expression: count(/Template_Sefaz_NFe_Portal/sefaz.nfe.status[{#AUTORIZADOR},RETORNO.AUT],#3,"eq","2")=3
+          name: 'Sefaz NF-e {#AUTORIZADOR}: Retorno Autorização instável'
+          priority: AVERAGE
+          description: As 3 últimas leituras do portal indicaram amarelo.
+          dependencies:
+          - name: 'Sefaz NF-e: falha na coleta do portal'
+            expression: max(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,#3)=0 or nodata(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,10m)=1
+      - uuid: 0c95cff7758e4d40bbb8feb86cb33063
+        name: '{#AUTORIZADOR}: Inutilização'
+        type: DEPENDENT
+        key: sefaz.nfe.status[{#AUTORIZADOR},INUTILIZACAO]
+        delay: '0'
+        history: 30d
+        trends: 365d
+        valuemap:
+          name: SEFAZ
+        preprocessing:
+        - type: JSONPATH
+          parameters:
+          - $.dados['{#AUTORIZADOR}']['INUTILIZACAO']
+          error_handler: DISCARD_VALUE
+        master_item:
+          key: sefaznfe.py[{$SEFAZ.URL},JSON]
+        tags:
+        - tag: autorizador
+          value: '{#AUTORIZADOR}'
+        - tag: servico
+          value: Inutilização
+        trigger_prototypes:
+        - uuid: a49a9339175c4d5281528aa0c5e595c5
+          expression: count(/Template_Sefaz_NFe_Portal/sefaz.nfe.status[{#AUTORIZADOR},INUTILIZACAO],#3,"eq","0")=3
+          name: 'Sefaz NF-e {#AUTORIZADOR}: Inutilização offline'
+          priority: HIGH
+          description: As 3 últimas leituras do portal indicaram vermelho.
+          dependencies:
+          - name: 'Sefaz NF-e: falha na coleta do portal'
+            expression: max(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,#3)=0 or nodata(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,10m)=1
+        - uuid: 30ffe71613da473696ed973d5f535088
+          expression: count(/Template_Sefaz_NFe_Portal/sefaz.nfe.status[{#AUTORIZADOR},INUTILIZACAO],#3,"eq","2")=3
+          name: 'Sefaz NF-e {#AUTORIZADOR}: Inutilização instável'
+          priority: AVERAGE
+          description: As 3 últimas leituras do portal indicaram amarelo.
+          dependencies:
+          - name: 'Sefaz NF-e: falha na coleta do portal'
+            expression: max(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,#3)=0 or nodata(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,10m)=1
+      - uuid: 9c98dd071c3746dc830cd77af3308b23
+        name: '{#AUTORIZADOR}: Consulta Protocolo'
+        type: DEPENDENT
+        key: sefaz.nfe.status[{#AUTORIZADOR},CONSULTA.PROTOCOLO]
+        delay: '0'
+        history: 30d
+        trends: 365d
+        valuemap:
+          name: SEFAZ
+        preprocessing:
+        - type: JSONPATH
+          parameters:
+          - $.dados['{#AUTORIZADOR}']['CONSULTA.PROTOCOLO']
+          error_handler: DISCARD_VALUE
+        master_item:
+          key: sefaznfe.py[{$SEFAZ.URL},JSON]
+        tags:
+        - tag: autorizador
+          value: '{#AUTORIZADOR}'
+        - tag: servico
+          value: Consulta Protocolo
+        trigger_prototypes:
+        - uuid: 45bf52caedb449d5bf5121a91f321795
+          expression: count(/Template_Sefaz_NFe_Portal/sefaz.nfe.status[{#AUTORIZADOR},CONSULTA.PROTOCOLO],#3,"eq","0")=3
+          name: 'Sefaz NF-e {#AUTORIZADOR}: Consulta Protocolo offline'
+          priority: HIGH
+          description: As 3 últimas leituras do portal indicaram vermelho.
+          dependencies:
+          - name: 'Sefaz NF-e: falha na coleta do portal'
+            expression: max(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,#3)=0 or nodata(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,10m)=1
+        - uuid: 54d5ed1d09e0437cb1b392d223028584
+          expression: count(/Template_Sefaz_NFe_Portal/sefaz.nfe.status[{#AUTORIZADOR},CONSULTA.PROTOCOLO],#3,"eq","2")=3
+          name: 'Sefaz NF-e {#AUTORIZADOR}: Consulta Protocolo instável'
+          priority: AVERAGE
+          description: As 3 últimas leituras do portal indicaram amarelo.
+          dependencies:
+          - name: 'Sefaz NF-e: falha na coleta do portal'
+            expression: max(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,#3)=0 or nodata(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,10m)=1
+      - uuid: 5741c68d301e4a899e4c3388fe5ac029
+        name: '{#AUTORIZADOR}: Status Serviço'
+        type: DEPENDENT
+        key: sefaz.nfe.status[{#AUTORIZADOR},SERVICO]
+        delay: '0'
+        history: 30d
+        trends: 365d
+        valuemap:
+          name: SEFAZ
+        preprocessing:
+        - type: JSONPATH
+          parameters:
+          - $.dados['{#AUTORIZADOR}']['SERVICO']
+          error_handler: DISCARD_VALUE
+        master_item:
+          key: sefaznfe.py[{$SEFAZ.URL},JSON]
+        tags:
+        - tag: autorizador
+          value: '{#AUTORIZADOR}'
+        - tag: servico
+          value: Status Serviço
+        trigger_prototypes:
+        - uuid: d45f2132292742129dd2047151059c9c
+          expression: count(/Template_Sefaz_NFe_Portal/sefaz.nfe.status[{#AUTORIZADOR},SERVICO],#3,"eq","0")=3
+          name: 'Sefaz NF-e {#AUTORIZADOR}: Status Serviço offline'
+          priority: HIGH
+          description: As 3 últimas leituras do portal indicaram vermelho.
+          dependencies:
+          - name: 'Sefaz NF-e: falha na coleta do portal'
+            expression: max(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,#3)=0 or nodata(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,10m)=1
+        - uuid: c28f036938c24b86bf226fed7f585a1c
+          expression: count(/Template_Sefaz_NFe_Portal/sefaz.nfe.status[{#AUTORIZADOR},SERVICO],#3,"eq","2")=3
+          name: 'Sefaz NF-e {#AUTORIZADOR}: Status Serviço instável'
+          priority: AVERAGE
+          description: As 3 últimas leituras do portal indicaram amarelo.
+          dependencies:
+          - name: 'Sefaz NF-e: falha na coleta do portal'
+            expression: max(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,#3)=0 or nodata(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,10m)=1
+        - uuid: f7ae499d2744458583fa50e2a0db06ea
+          expression: nodata(/Template_Sefaz_NFe_Portal/sefaz.nfe.status[{#AUTORIZADOR},SERVICO],15m)=1
+          name: 'Sefaz NF-e {#AUTORIZADOR}: sem dados há 15 minutos'
+          priority: WARNING
+          description: O portal deixou de listar este autorizador (ou a coleta parou). Se o autorizador saiu do portal, ele será removido pela descoberta após 30 dias.
+          dependencies:
+          - name: 'Sefaz NF-e: falha na coleta do portal'
+            expression: max(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,#3)=0 or nodata(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,10m)=1
+      - uuid: 6f3c4ccf999f4ada94cd59fdd2acb0a2
+        name: '{#AUTORIZADOR}: Consulta Cadastro'
+        type: DEPENDENT
+        key: sefaz.nfe.status[{#AUTORIZADOR},CONSULTA.CADASTRO]
+        delay: '0'
+        history: 30d
+        trends: 365d
+        valuemap:
+          name: SEFAZ
+        preprocessing:
+        - type: JSONPATH
+          parameters:
+          - $.dados['{#AUTORIZADOR}']['CONSULTA.CADASTRO']
+          error_handler: DISCARD_VALUE
+        master_item:
+          key: sefaznfe.py[{$SEFAZ.URL},JSON]
+        tags:
+        - tag: autorizador
+          value: '{#AUTORIZADOR}'
+        - tag: servico
+          value: Consulta Cadastro
+        trigger_prototypes:
+        - uuid: 34ad7b5897bc4a1db8762dc308a64373
+          expression: count(/Template_Sefaz_NFe_Portal/sefaz.nfe.status[{#AUTORIZADOR},CONSULTA.CADASTRO],#3,"eq","0")=3
+          name: 'Sefaz NF-e {#AUTORIZADOR}: Consulta Cadastro offline'
+          priority: HIGH
+          description: As 3 últimas leituras do portal indicaram vermelho.
+          dependencies:
+          - name: 'Sefaz NF-e: falha na coleta do portal'
+            expression: max(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,#3)=0 or nodata(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,10m)=1
+        - uuid: d05a0fb02d984ed09ab20c9d14fd2a1d
+          expression: count(/Template_Sefaz_NFe_Portal/sefaz.nfe.status[{#AUTORIZADOR},CONSULTA.CADASTRO],#3,"eq","2")=3
+          name: 'Sefaz NF-e {#AUTORIZADOR}: Consulta Cadastro instável'
+          priority: AVERAGE
+          description: As 3 últimas leituras do portal indicaram amarelo.
+          dependencies:
+          - name: 'Sefaz NF-e: falha na coleta do portal'
+            expression: max(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,#3)=0 or nodata(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,10m)=1
+      - uuid: 87c795d00fba4cfe95c8a74422fe66cb
+        name: '{#AUTORIZADOR}: Recepção Evento'
+        type: DEPENDENT
+        key: sefaz.nfe.status[{#AUTORIZADOR},RECEPCAO.EVENTO]
+        delay: '0'
+        history: 30d
+        trends: 365d
+        valuemap:
+          name: SEFAZ
+        preprocessing:
+        - type: JSONPATH
+          parameters:
+          - $.dados['{#AUTORIZADOR}']['RECEPCAO.EVENTO']
+          error_handler: DISCARD_VALUE
+        master_item:
+          key: sefaznfe.py[{$SEFAZ.URL},JSON]
+        tags:
+        - tag: autorizador
+          value: '{#AUTORIZADOR}'
+        - tag: servico
+          value: Recepção Evento
+        trigger_prototypes:
+        - uuid: 5ac7f9b499744b1db7d42b50918ca9d8
+          expression: count(/Template_Sefaz_NFe_Portal/sefaz.nfe.status[{#AUTORIZADOR},RECEPCAO.EVENTO],#3,"eq","0")=3
+          name: 'Sefaz NF-e {#AUTORIZADOR}: Recepção Evento offline'
+          priority: HIGH
+          description: As 3 últimas leituras do portal indicaram vermelho.
+          dependencies:
+          - name: 'Sefaz NF-e: falha na coleta do portal'
+            expression: max(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,#3)=0 or nodata(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,10m)=1
+        - uuid: 9f900fabf89b41489a4fb607b1f58d1e
+          expression: count(/Template_Sefaz_NFe_Portal/sefaz.nfe.status[{#AUTORIZADOR},RECEPCAO.EVENTO],#3,"eq","2")=3
+          name: 'Sefaz NF-e {#AUTORIZADOR}: Recepção Evento instável'
+          priority: AVERAGE
+          description: As 3 últimas leituras do portal indicaram amarelo.
+          dependencies:
+          - name: 'Sefaz NF-e: falha na coleta do portal'
+            expression: max(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,#3)=0 or nodata(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,10m)=1
+      - uuid: d7019aa87a8d4daa9e7b408f7d6e4e5b
+        name: '{#AUTORIZADOR}: Tempo Médio'
+        type: DEPENDENT
+        key: sefaz.nfe.status[{#AUTORIZADOR},TEMPO.MED]
+        delay: '0'
+        history: 30d
+        trends: 365d
+        valuemap:
+          name: SEFAZ
+        preprocessing:
+        - type: JSONPATH
+          parameters:
+          - $.dados['{#AUTORIZADOR}']['TEMPO.MED']
+          error_handler: DISCARD_VALUE
+        master_item:
+          key: sefaznfe.py[{$SEFAZ.URL},JSON]
+        tags:
+        - tag: autorizador
+          value: '{#AUTORIZADOR}'
+        - tag: servico
+          value: Tempo Médio
+        trigger_prototypes:
+        - uuid: 444bd14df8f847e68c81efa2b2ccd543
+          expression: count(/Template_Sefaz_NFe_Portal/sefaz.nfe.status[{#AUTORIZADOR},TEMPO.MED],#3,"eq","0")=3
+          name: 'Sefaz NF-e {#AUTORIZADOR}: Tempo Médio crítico'
+          priority: HIGH
+          description: Tempo médio de 1000 ms ou mais nas 3 últimas leituras.
+          dependencies:
+          - name: 'Sefaz NF-e: falha na coleta do portal'
+            expression: max(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,#3)=0 or nodata(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,10m)=1
+        - uuid: c388a57b5a9f48979353db0e0e8a732e
+          expression: count(/Template_Sefaz_NFe_Portal/sefaz.nfe.status[{#AUTORIZADOR},TEMPO.MED],#3,"eq","2")=3
+          name: 'Sefaz NF-e {#AUTORIZADOR}: Tempo Médio intermitente'
+          priority: AVERAGE
+          description: Tempo médio entre 200 e 999 ms nas 3 últimas leituras.
+          dependencies:
+          - name: 'Sefaz NF-e: falha na coleta do portal'
+            expression: max(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,#3)=0 or nodata(/Template_Sefaz_NFe_Portal/sefaz.nfe.coleta,10m)=1
+      - uuid: 4af583e0a54e4ab8a5d54447c0d273a5
+        name: '{#AUTORIZADOR}: Tempo Médio (ms)'
+        type: DEPENDENT
+        key: sefaz.nfe.tempo[{#AUTORIZADOR}]
+        delay: '0'
+        history: 30d
+        trends: 365d
+        units: ms
+        description: Tempo médio informado pelo portal. Sem valor quando o portal mostra '-'.
+        preprocessing:
+        - type: JSONPATH
+          parameters:
+          - $.dados['{#AUTORIZADOR}']['TEMPO.MED.MS']
+          error_handler: DISCARD_VALUE
+        master_item:
+          key: sefaznfe.py[{$SEFAZ.URL},JSON]
+        tags:
+        - tag: autorizador
+          value: '{#AUTORIZADOR}'
+        - tag: servico
+          value: Tempo Médio
+      master_item:
+        key: sefaznfe.py[{$SEFAZ.URL},JSON]
+      preprocessing:
+      - type: JAVASCRIPT
+        parameters:
+        - |-
+          var d = JSON.parse(value);
+          if (!d.dados) {
+              throw 'Coleta do portal falhou: ' + (d.erro || 'resposta sem dados');
+          }
+          return JSON.stringify(Object.keys(d.dados).map(function (k) {
+              return {'{#AUTORIZADOR}': k};
+          }));
+    tags:
+    - tag: class
+      value: service
+    - tag: target
+      value: sefaz
+    macros:
+    - macro: '{$SEFAZ.INTERVALO}'
+      value: 1m
+      description: Intervalo de leitura do portal.
+    - macro: '{$SEFAZ.URL}'
+      value: https://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx
+      description: Página de disponibilidade da NF-e.
+    valuemaps:
+    - uuid: 4c3372bdbf1b4db9ba8fc44c1f106c7b
+      name: SEFAZ
+      mappings:
+      - value: '0'
+        newvalue: Offline
+      - value: '1'
+        newvalue: Disponível
+      - value: '2'
+        newvalue: Indisponível
+      - value: '3'
+        newvalue: Erro na coleta
+      - value: '5'
+        newvalue: Sem Dados
+    - uuid: bdfc000fd24f49b0bc2f84e392ccbc76
+      name: SEFAZ coleta
+      mappings:
+      - value: '0'
+        newvalue: Falha
+      - value: '1'
+        newvalue: OK

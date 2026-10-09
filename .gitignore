@@ -3,3 +3,6 @@
 CLAUDE.md
 zNotas/
 zNotas.txt
+# Python
+__pycache__/
+.pytest_cache/
