@@ -399,6 +399,28 @@ zabbix_export:
           value: '{#AUTORIZADOR}'
         - tag: servico
           value: Tempo Médio
+      - uuid: d118c6c4e5624d2f8a931db42b9aab80
+        name: '{#AUTORIZADOR}: Status geral (pior serviço)'
+        type: DEPENDENT
+        key: sefaz.nfe.status[{#AUTORIZADOR},GERAL]
+        delay: '0'
+        history: 30d
+        trends: 365d
+        valuemap:
+          name: SEFAZ
+        description: Pior status entre os 7 serviços (sem o tempo médio). Usado no mapa do Grafana; os alertas continuam por serviço.
+        preprocessing:
+        - type: JSONPATH
+          parameters:
+          - $.dados['{#AUTORIZADOR}']['GERAL']
+          error_handler: DISCARD_VALUE
+        master_item:
+          key: sefaznfe.py[{$SEFAZ.URL},JSON]
+        tags:
+        - tag: autorizador
+          value: '{#AUTORIZADOR}'
+        - tag: servico
+          value: Geral
       master_item:
         key: sefaznfe.py[{$SEFAZ.URL},JSON]
       preprocessing:

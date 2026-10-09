@@ -19,6 +19,8 @@ O modo JSON lê o portal uma vez e retorna todos os autorizadores. É o modo
 usado pelo item mestre do template "Sefaz NF-e Portal":
     {"dados": {"AM": {"AUTORIZACAO": 1, ..., "TEMPO.MED": 5}, ...}}
 "TEMPO.MED.MS" (tempo médio em ms) só aparece quando o portal informa o valor.
+"GERAL" é o pior status entre os serviços (sem o tempo médio): 0 se algum está
+offline, senão 2 se algum está instável, senão 1 se algum está disponível, senão 5.
 Em caso de falha: {"erro": "<motivo>"}
 
 Diagnóstico (mostra o motivo de um código 3):
@@ -104,6 +106,14 @@ def _normalize(text: str) -> str:
     text = unicodedata.normalize('NFKD', text)
     text = ''.join(c for c in text if not unicodedata.combining(c) and not c.isdigit())
     return ' '.join(text.upper().split())
+
+
+def _pior_status(valores: List[int]) -> int:
+    """Pior status de uma lista: offline > instável > disponível > sem dados."""
+    for codigo in ('OFFLINE', 'INDISPONIVEL', 'DISPONIVEL'):
+        if STATUS_CODES[codigo] in valores:
+            return STATUS_CODES[codigo]
+    return STATUS_CODES['SEM_DADOS']
 
 
 class NFEStatusChecker:
@@ -286,6 +296,8 @@ class NFEStatusChecker:
                 tempo_ms = self._parse_tempo_medio(cells[colunas['TEMPO.MED']].get_text(strip=True))
                 if tempo_ms is not None:
                     servicos['TEMPO.MED.MS'] = tempo_ms
+            servicos['GERAL'] = _pior_status(
+                [v for k, v in servicos.items() if k in STATUS_MAP and k != 'TEMPO.MED'])
             dados[autorizador] = servicos
 
         if not dados:

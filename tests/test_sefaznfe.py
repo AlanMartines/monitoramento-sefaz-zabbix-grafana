@@ -157,3 +157,17 @@ def test_main_modo_individual_imprime_so_o_numero(monkeypatch, capsys, html):
     m.main()
     out, err = capsys.readouterr()
     assert (out, err) == ("1\n", "")
+
+
+@pytest.mark.parametrize("mudancas,esperado", [
+    ({}, 1),
+    ({("BA", 3): ("img", "imagens/bola_amarela_P.png")}, 2),
+    ({("BA", 3): ("img", "imagens/bola_amarela_P.png"), ("BA", 8): ("img", "imagens/bola_vermelho_P.png")}, 0),
+    ({("BA", 6): ("text", "5000")}, 1),   # tempo médio não entra no status geral
+])
+def test_status_geral(html, mudancas, esperado):
+    assert checker_for(edit(html, mudancas)).get_all_status(URL)["BA"]["GERAL"] == esperado
+
+
+def test_status_geral_sem_dados():
+    assert m._pior_status([5, 5, 3]) == 5

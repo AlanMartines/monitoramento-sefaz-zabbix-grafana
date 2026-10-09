@@ -77,7 +77,7 @@ Lê o portal uma vez e devolve todos os autorizadores:
 ```json
 {"dados": {"AM": {"AUTORIZACAO": 1, "RETORNO.AUT": 1, ..., "TEMPO.MED": 5}, "BA": {...}}}
 ```
-`TEMPO.MED.MS` (tempo médio em ms) só aparece quando o portal informa o valor. Em caso de falha, a saída é `{"erro": "<motivo>"}`.
+`TEMPO.MED.MS` (tempo médio em ms) só aparece quando o portal informa o valor. `GERAL` é o pior status entre os 7 serviços. Em caso de falha, a saída é `{"erro": "<motivo>"}`.
 
 # Como Usar
 
@@ -89,7 +89,7 @@ Arquivos: `zbx_export_template_portal.yaml` e `zbx_export_host_portal.yaml`. Req
 
 Como funciona:
 - **Item mestre** `sefaznfe.py[{$SEFAZ.URL},JSON]`: uma única execução do script por intervalo, em vez de uma por serviço e por estado.
-- **Descoberta (LLD)**: cria, para cada autorizador, os 8 itens de status, o tempo médio em ms e os triggers. Um autorizador que sai do portal é removido após 30 dias.
+- **Descoberta (LLD)**: cria, para cada autorizador, os 8 itens de status, o "Status geral" (pior serviço, usado no mapa), o tempo médio em ms e os triggers. Um autorizador que sai do portal é removido após 30 dias.
 - **Alertas com confirmação**: offline/crítico (HIGH) e instável/intermitente (AVERAGE) só disparam após **3 leituras seguidas**.
 - **Falha na coleta**: se o script não conseguir ler o portal três vezes seguidas, ou parar de enviar dados por 10 minutos, dispara um único alerta, "Sefaz NF-e: falha na coleta do portal". Os itens de status mantêm o último valor, e os demais triggers dependem desse, então não há avalanche de alertas.
 
@@ -107,7 +107,30 @@ Arquivos: `zbx_export_templates.yaml` e `zbx_export_hosts.yaml`. Funciona, mas e
 Requer o plugin [Zabbix](https://grafana.com/grafana/plugins/alexanderzobnin-zabbix-app/) com um datasource configurado.
 
 - **`Sefaz NF-e Portal.json` (recomendado)**: para o template "Sefaz NF-e Portal". A variável **Autorizador** é preenchida a partir dos itens descobertos no Zabbix, e um painel é repetido para cada autorizador, então novos autorizadores aparecem sozinhos. O dashboard também mostra o status da coleta, o histórico do Status Serviço e o tempo médio em ms. Na importação, escolha o datasource Zabbix.
+- **`Sefaz NF-e Mapa.json`**: o mesmo layout do [dashboard com certificado](https://grafana.com/grafana/dashboards/10005-zabbix-monitoramento-sefaz/), mas sem certificado, usando o template "Sefaz NF-e Portal" (veja abaixo).
 - **`Consultar Disponibilidade NF-e Sefaz.json` (legado)**: para os hosts do template legado, com um painel por serviço e por estado.
+
+### Dashboard "Sefaz NF-e Mapa" (sem certificado)
+- **Mapa do Brasil**: um ponto por autorizador, colorido pelo pior status entre os serviços (item "Status geral"). Um círculo translúcido aparece quando há problema: maior e vermelho para offline, menor e amarelo para instável. SVAN e SVC-AN ficam em Brasília, SVRS e SVC-RS em Porto Alegre.
+- **Para o autorizador escolhido**, uma linha por serviço com:
+  - o status atual (OK, Instável, Offline);
+  - um gauge com a **disponibilidade %** no período (fração das leituras em verde);
+  - o **histórico** do status.
+- **Rodapé**: quais UFs usam cada autorizador virtual.
+
+Diferença para o dashboard com certificado: o portal não informa o tempo de resposta de cada serviço. Por isso, os gauges e gráficos mostram disponibilidade e histórico, não milissegundos.
+
+**Instalação (uma vez):** o mapa precisa do arquivo de coordenadas `grafana/sefaz-autorizadores.json` no servidor do Grafana. O Grafana não carrega esse arquivo de uma URL externa.
+```sh
+# Grafana instalado por pacote
+sudo cp grafana/sefaz-autorizadores.json /usr/share/grafana/public/gazetteer/
+
+# Grafana em Docker: monte o arquivo como volume
+#   -v /caminho/grafana/sefaz-autorizadores.json:/usr/share/grafana/public/gazetteer/sefaz-autorizadores.json:ro
+```
+Confira o arquivo depois de atualizar o Grafana. O fundo do mapa (Esri Light Gray) é carregado pelo navegador e precisa de acesso à internet.
+
+**Itens novos no Grafana:** o plugin Zabbix guarda a lista de itens em cache por até 1 hora. Depois de importar ou atualizar o template, os itens novos (como "Status geral") podem demorar a aparecer, a menos que você reinicie o Grafana ou reduza o *Cache TTL* do datasource.
 
 ## Com certificado digital
 A pasta [withcertificate](withcertificate/README.md) tem uma abordagem alternativa, sem manutenção ativa: cenários web que chamam diretamente os webservices de cada SEFAZ usando o certificado digital da empresa.

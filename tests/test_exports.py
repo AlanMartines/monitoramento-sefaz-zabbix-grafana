@@ -36,7 +36,7 @@ def test_template_portal_cobre_todos_os_servicos_do_script():
     rule = template_portal()["discovery_rules"][0]
     keys = {p["key"] for p in rule["item_prototypes"]}
     servicos = {re.search(r",(.+)\]$", k).group(1) for k in keys if k.startswith("sefaz.nfe.status[")}
-    assert servicos == set(m.STATUS_MAP)
+    assert servicos == set(m.STATUS_MAP) | {"GERAL"}
 
 
 def test_template_portal_jsonpath_usa_chaves_do_script():
@@ -44,10 +44,28 @@ def test_template_portal_jsonpath_usa_chaves_do_script():
     for proto in rule["item_prototypes"]:
         path = proto["preprocessing"][0]["parameters"][0]
         chave = re.search(r"\['([^']+)'\]$", path).group(1)
-        assert chave in set(m.STATUS_MAP) | {"TEMPO.MED.MS"}, path
+        assert chave in set(m.STATUS_MAP) | {"TEMPO.MED.MS", "GERAL"}, path
 
 
 def test_timeout_dos_itens_maior_que_deadline_do_script():
     for path in ZABBIX_EXPORTS:
         for match in re.finditer(r"timeout: (\d+)s", path.read_text(encoding="utf-8")):
             assert int(match.group(1)) > m.DEADLINE, path.name
+
+
+def test_mapa_tem_coordenadas_para_todos_os_autorizadores():
+    gazetteer = json.loads((ROOT / "grafana" / "sefaz-autorizadores.json").read_text(encoding="utf-8"))
+    chaves = {p["key"] for p in gazetteer}
+    html = (ROOT / "tests" / "fixtures" / "disponibilidade.html").read_text(encoding="utf-8")
+    portal = set(re.findall(r"<td>\s*([A-Z][A-Z-]+)\s*</td>", html))
+    assert len(portal) == 14, portal
+    assert portal <= chaves, portal - chaves
+    for p in gazetteer:
+        assert -34 < p["latitude"] < 6 and -74 < p["longitude"] < -34, p  # dentro do Brasil
+
+
+def test_dashboard_mapa_usa_o_gazetteer_do_repositorio():
+    dash = json.loads((ROOT / "Sefaz NF-e Mapa.json").read_text(encoding="utf-8"))
+    geomap = next(p for p in dash["panels"] if p["type"] == "geomap")
+    for layer in geomap["options"]["layers"]:
+        assert layer["location"]["gazetteer"] == "public/gazetteer/sefaz-autorizadores.json"

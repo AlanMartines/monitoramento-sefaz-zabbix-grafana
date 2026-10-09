@@ -1,0 +1,86 @@
+[
+  {
+    "key": "AM",
+    "latitude": -3.47,
+    "longitude": -65.1,
+    "name": "Amazonas (SEFAZ-AM)"
+  },
+  {
+    "key": "BA",
+    "latitude": -12.58,
+    "longitude": -41.7,
+    "name": "Bahia (SEFAZ-BA)"
+  },
+  {
+    "key": "GO",
+    "latitude": -15.98,
+    "longitude": -49.86,
+    "name": "Goiás (SEFAZ-GO)"
+  },
+  {
+    "key": "MG",
+    "latitude": -18.51,
+    "longitude": -44.55,
+    "name": "Minas Gerais (SEFAZ-MG)"
+  },
+  {
+    "key": "MS",
+    "latitude": -20.51,
+    "longitude": -54.54,
+    "name": "Mato Grosso do Sul (SEFAZ-MS)"
+  },
+  {
+    "key": "MT",
+    "latitude": -12.64,
+    "longitude": -55.42,
+    "name": "Mato Grosso (SEFAZ-MT)"
+  },
+  {
+    "key": "PE",
+    "latitude": -8.38,
+    "longitude": -37.86,
+    "name": "Pernambuco (SEFAZ-PE)"
+  },
+  {
+    "key": "PR",
+    "latitude": -24.89,
+    "longitude": -51.55,
+    "name": "Paraná (SEFAZ-PR)"
+  },
+  {
+    "key": "RS",
+    "latitude": -29.75,
+    "longitude": -53.6,
+    "name": "Rio Grande do Sul (SEFAZ-RS)"
+  },
+  {
+    "key": "SP",
+    "latitude": -22.19,
+    "longitude": -48.79,
+    "name": "São Paulo (SEFAZ-SP)"
+  },
+  {
+    "key": "SVAN",
+    "latitude": -14.9,
+    "longitude": -47.3,
+    "name": "SVAN – Sefaz Virtual do Ambiente Nacional (Brasília)"
+  },
+  {
+    "key": "SVC-AN",
+    "latitude": -16.7,
+    "longitude": -47.3,
+    "name": "SVC-AN – Sefaz Virtual de Contingência Ambiente Nacional (Brasília)"
+  },
+  {
+    "key": "SVRS",
+    "latitude": -29.4,
+    "longitude": -50.7,
+    "name": "SVRS – Sefaz Virtual do RS (Porto Alegre)"
+  },
+  {
+    "key": "SVC-RS",
+    "latitude": -31.1,
+    "longitude": -51.4,
+    "name": "SVC-RS – Sefaz Virtual de Contingência RS (Porto Alegre)"
+  }
+]
